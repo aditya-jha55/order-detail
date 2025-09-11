@@ -89,7 +89,7 @@ export default function ServiceTab(props: Props) {
                         </p>
                       </th>
                       <th>
-                        <a href="">Attachments (4)</a>
+                        <a href="javascript:void(0)">Attachments (4)</a>
                       </th>
                       <th>
                         <IconButton>
@@ -176,7 +176,7 @@ export default function ServiceTab(props: Props) {
                           </p>
                         </th>
                         <th>
-                          <a href="">Attachments (4)</a>
+                          <a href="javascript:void(0)">Attachments (4)</a>
                         </th>
                         <th>
                           <IconButton>
@@ -314,7 +314,7 @@ export default function ServiceTab(props: Props) {
                           </p>
                         </th>
                         <th>
-                          <a href="">Attachments (4)</a>
+                          <a href="javascript:void(0)">Attachments (4)</a>
                         </th>
                         <th>
                           <IconButton>
@@ -452,7 +452,7 @@ export default function ServiceTab(props: Props) {
                           </p>
                         </th>
                         <th>
-                          <a href="">Attachments (4)</a>
+                          <a href="javascript:void(0)">Attachments (4)</a>
                         </th>
                         <th>
                           <IconButton>
@@ -590,7 +590,7 @@ export default function ServiceTab(props: Props) {
                           </p>
                         </th>
                         <th>
-                          <a href="">Attachments (4)</a>
+                          <a href="javascript:void(0)">Attachments (4)</a>
                         </th>
                         <th>
                           <IconButton>

@@ -8,7 +8,7 @@ import FormLabel from '@mui/material/FormLabel';
 import '../../styles/orders.scss';
 import '../../styles/newOrderDetail.scss';
 import ServiceTab from './components/ServiceTab';
-import { CustomButton, PageHeading, SectionContainer, TabElements, TabsList } from '../../Components';
+import { CustomButton, PageHeading, TabElements, TabsList } from '../../Components';
 import Images from '../../Utils/images';
 import { useDTranslation, useHideOnScroll } from '../../customHooks';
 import { ROUTES } from '../../helpers';
