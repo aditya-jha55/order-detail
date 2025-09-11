@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 /**
  * Custom hook for dynamic keyPrefix with useTranslation.
@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
  * @returns {Function} The translation function `t` scoped to the provided keyPrefix.
  */
 export const useDTranslation = (keyPrefix: string) => {
-  const { t } = useTranslation('translation', {
+  const { t } = useTranslation("translation", {
     keyPrefix,
   });
 

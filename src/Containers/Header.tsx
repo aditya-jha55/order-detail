@@ -1,5 +1,4 @@
-import { MouseEvent, useState } from 'react';
-import {  useLocation, useNavigate } from 'react-router-dom';
+import { type JSX, type MouseEvent, useState } from 'react';
 
 import { Button, IconButton, Menu, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -12,12 +11,9 @@ import Images from '../Utils/images';
 
 
 
-export default function Header({ route }: any): JSX.Element {
-  const location = useLocation();
-  const navigate = useNavigate();
+export default function Header(): JSX.Element {
 
   const t = useDTranslation('header');
-  const tC = useDTranslation('Common');
 
 
 

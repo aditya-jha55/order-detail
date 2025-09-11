@@ -14,7 +14,6 @@ export default function Info(props: Props) {
   const {
     infoText,
     theme = 'dark',
-    icon = Images.INFO_ICON,
     loading,
     className,
   } = props;
@@ -37,15 +36,16 @@ export default function Info(props: Props) {
           <CircularProgress size={30} />
         ) : (
           <img
-            src={
-              theme === 'dark'
-                ? icon
-                : theme === 'error'
-                ? Images.ERROR_IC
-                : theme === 'warning'
-                ? Images.INFO_CIRCLE_WARNING_IC
-                : Images.INFO_ICON_LIGHT
-            }
+            // src={
+            //   theme === 'dark'
+            //     ? icon
+            //     : theme === 'error'
+            //     ? Images.ERROR_IC
+            //     : theme === 'warning'
+            //     ? Images.INFO_CIRCLE_WARNING_IC
+            //     : Images.INFO_ICON_LIGHT
+            // }
+            src={Images.INFO_ICON_LIGHT}
             alt={""}
           />
         )}

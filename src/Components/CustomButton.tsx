@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react';
+import React, { type JSX, type RefObject } from 'react';
 import { Button, CircularProgress } from '@mui/material';
 
 
@@ -47,8 +47,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   className,
   color = 'primary',
   href,
-  ref,
-  sx,
+  ref
 }) => {
   const windowWidth = window.innerWidth;
   return showIcon ? (
@@ -88,8 +87,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
             `
         }
         sx={{
-          width: { width },
-          ...sx,
+          width: { width }
         }}
         variant={variant}
         startIcon={
@@ -130,8 +128,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
               }`
         }
         sx={{
-          width: { width },
-          ...sx
+          width: { width }
         }}
         variant={variant}
         endIcon={
@@ -178,8 +175,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         pressed ? 'pressed' : ''
       }  ${className}  ${loading && 'loading_btn'}`}
       sx={{
-        width: { width },
-        ...sx
+        width: { width }
       }}
       disableElevation
       disableFocusRipple

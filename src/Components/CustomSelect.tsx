@@ -8,7 +8,6 @@ import {
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { type SelectChangeEvent, type SelectProps } from '@mui/material/Select';
-import React from 'react';
 import { generateShortKey } from '../Utils/helperFns';
 import CloseIcon from '@mui/icons-material/Close';
 import type { CustomKeys } from '../types';
@@ -44,36 +43,25 @@ export default function CustomSelect(props: Props & Pick<SelectProps, 'renderVal
   const {
     id,
     labelText,
-    placeHolderText,
-    name = '',
+    placeHolderText = "",
     error,
     helperText,
     defaultValue,
     disabled,
-    value,
-    onChange,
     options,
-    control,
-    isError,
     requiredField,
     customKeys,
     itemDisableLogic,
     customeKeyPlaceholder,
     hintText,
-    setValue,
-    index,
     isNone,
     heading,
     className,
-    renderValue,
     menuClassName
   } = props;
 
-  const [currentValue, setcurrentValue] = React.useState('');
-  const handleChange = (event: SelectChangeEvent) => {
-    setcurrentValue(event.target.value as string);
-  };
-const anchorRef = React.useRef<HTMLDivElement>(null);
+
+
   return (
     <FormControl
       fullWidth
@@ -90,13 +78,13 @@ const anchorRef = React.useRef<HTMLDivElement>(null);
                     labelId={id}
                     size="small"
                     id="select"
-                    placeholder={placeHolderText}
+                    // placeholder={placeHolderText}
                     
                     displayEmpty
                     disabled={disabled}
                     value={""}
                    
-                    defaultValue={defaultValue ? defaultValue : undefined}
+                    defaultValue={defaultValue ? defaultValue : placeHolderText}
                     IconComponent={KeyboardArrowDownIcon}
                  
                     inputProps={{
@@ -127,7 +115,7 @@ const anchorRef = React.useRef<HTMLDivElement>(null);
           }
         }}
                   >
-                    {(customeKeyPlaceholder && field.value) ||
+                    {(customeKeyPlaceholder) ||
                       (isNone && (
                         <MenuItem value="">
                           {heading ? heading : 'None'}{' '}

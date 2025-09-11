@@ -1,8 +1,7 @@
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 import clsx from 'clsx';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import React from 'react';
+import { type JSX } from 'react';
 import Images from '../Utils/images';
 interface Props {
   children?: JSX.Element | JSX.Element[];
@@ -14,12 +13,7 @@ interface Props {
 
 export default function SectionContainerCollapsable(props: Props) {
   const { children, heading, hideHeader = true, className, ButtonNode } = props;
-  const [expanded, setExpanded] = React.useState<string | false>(false);
 
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
   return (
     <div className={clsx('sectionContainer sectionContainerAccordian', className)} >
       <Accordion

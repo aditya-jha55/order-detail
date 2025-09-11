@@ -1,6 +1,5 @@
 import Tab from '@mui/material/Tab';
-import Tabs, { TabsProps } from '@mui/material/Tabs';
-import { a11yProps } from '@/Utils';
+import Tabs, { type TabsProps } from '@mui/material/Tabs';
 
 type MuiTabProps = Pick<
   TabsProps,
@@ -12,7 +11,14 @@ type TabsListProps = {
   tabLabel?: string;
 } & MuiTabProps;
 
+
 const TabsList = ({ labels, tabLabel, ...muiTabProps }: TabsListProps) => {
+    function a11yProps(index: number, _tabLabel: string | undefined) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
   return (
     <Tabs {...muiTabProps}>
       {labels.map((label, index) => (

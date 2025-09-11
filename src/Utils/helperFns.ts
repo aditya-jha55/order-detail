@@ -474,23 +474,6 @@ export const getPriceWithCurrency = (amount: any, withoutAbbri?: boolean) => {
   return "$" + abbreviatePrice(numericAmount);
 };
 
-interface Item {
-  _id: string;
-  title: string;
-  thumbnailImg: string;
-  qty: number;
-  deliveryFee: number;
-  rushFee: number;
-  [key: string]: any;
-  rentPricing: {
-    _id: string;
-    priceMode: string;
-    rentPrice: number;
-    shiftLength: number;
-    minDuration: number;
-  }[];
-}
-
 type Coordinate = [number, number];
 
 /**

@@ -324,12 +324,6 @@ export const PACKAGE_TYPES_KEYS: any = {
   PRODUCTS_AND_SERVICES: t("Product_Management.productAndService"),
 };
 
-export enum USER_ROLES {
-  BRANCH_MANAGER = "BRANCH_MANAGER",
-  VENDOR = "VENDOR",
-  CO_VENDOR = "CO_VENDOR",
-}
-
 export const RATE_MODEL_OPTIONS = ["Hourly", "Daily", "Weekly"];
 
 export const RATE_MODELS = [

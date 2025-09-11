@@ -1,5 +1,5 @@
 import { Tab, Tabs, type TabProps } from '@mui/material';
-import { SyntheticEvent } from 'react';
+import type { SyntheticEvent } from 'react';
 
 type TabsListProps = {
   activeTab: number;
@@ -8,7 +8,7 @@ type TabsListProps = {
   category: string;
   className?: string;
   tabProps?: TabProps;
-  hidendTabIndex?: [] | [number];
+  hidendTabIndex?: number[];
 };
 
 const TabsList = ({
@@ -36,7 +36,7 @@ const TabsList = ({
         variant="scrollable"
         allowScrollButtonsMobile={true}
       >
-        {tabLabels.map((tabLabel, index) => {
+        {tabLabels.map((tabLabel, index: number) => {
           if (hidendTabIndex.includes(index)) return null;
           return (
             <Tab

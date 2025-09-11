@@ -2,10 +2,9 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { FormHelperText, FormLabel } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select, { type SelectChangeEvent } from '@mui/material/Select';
 import React from 'react';
-import { Controller } from 'react-hook-form';
-import { CustomKeys } from '../types';
+import type { CustomKeys } from '../types';
 interface Props {
   id: string;
   labelText?: string;
@@ -29,7 +28,6 @@ export default function CustomSelect(props: Props) {
     id,
     labelText,
     placeHolderText,
-    name = '',
     error,
     helperText,
     defaultValue,
@@ -37,8 +35,6 @@ export default function CustomSelect(props: Props) {
     value,
     onChange,
     options,
-    control,
-    isError,
     requiredField,
     customKeys,
     itemDisableLogic,
@@ -58,74 +54,7 @@ export default function CustomSelect(props: Props) {
       <FormLabel className="formLabel">
         {labelText} {requiredField ? <sup>*</sup> : null}{' '}
       </FormLabel>
-      {control ? (
-        <Controller
-          name={name}
-          control={control}
-          render={({ field }) => {
-            return (
-              field && (
-                <Select
-                  labelId={id}
-                  size="small"
-                  id="select"
-                  placeholder={placeHolderText}
-                  {...field}
-                  disabled={disabled}
-                  value={value ? value : field.value}
-                  onChange={onChange ? onChange : field.onChange}
-                  defaultValue={defaultValue ? defaultValue : undefined}
-                  displayEmpty
-                  IconComponent={KeyboardArrowDownIcon}
-                  renderValue={
-                    customKeys
-                      ? undefined
-                      : (selected) => {
-                          if (!selected) {
-                            return (
-                              <div className="select_placeholder">
-                                {placeHolderText}
-                              </div>
-                            );
-                          }
-                          return selected;
-                        }
-                  }
-                >
-                  <MenuItem value="" disabled>
-                    {placeHolderText}
-                  </MenuItem>
-                  {customKeys
-                    ? options.map((item: any) => {
-                        return (
-                          <MenuItem
-                            key={item[customKeys.value]}
-                            value={item[customKeys.value]}
-                          >
-                            {item[customKeys.label]}
-                          </MenuItem>
-                        );
-                      })
-                    : options.map((item: any) => {
-                        return (
-                          <MenuItem
-                            value={item}
-                            disabled={
-                              itemDisableLogic
-                                ? itemDisableLogic(item)
-                                : undefined
-                            }
-                          >
-                            {item}
-                          </MenuItem>
-                        );
-                      })}
-                </Select>
-              )
-            );
-          }}
-        />
-      ) : (
+     
         <Select
           labelId={id}
           id="select"
@@ -133,7 +62,7 @@ export default function CustomSelect(props: Props) {
           value={value ? value : currentValue}
           defaultValue={defaultValue}
           onChange={onChange ? onChange : handleChange}
-          placeholder={placeHolderText}
+          // placeholder={placeHolderText}
           IconComponent={KeyboardArrowDownIcon}
           displayEmpty
           disabled={disabled}
@@ -173,7 +102,7 @@ export default function CustomSelect(props: Props) {
                 );
               })}
         </Select>
-      )}
+      
 
       <FormHelperText className={error ? 'Mui-error' : ''}>
         {helperText}

@@ -13,7 +13,7 @@ import Images from '../../Utils/images';
 import { useDTranslation, useHideOnScroll } from '../../customHooks';
 import { ROUTES } from '../../helpers';
 import SectionContainerCollapsable from '../../Components/SectionContainerCollapsable';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type RefObject, type SyntheticEvent } from 'react';
 import OrderNameCard from './components/OrderNameCard';
 
 const tabCategory = 'order-details';
@@ -23,7 +23,7 @@ export default function OrderDetailsNewUi() {
 
 
 
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab] = useState(0);
 
 
   const tC = useDTranslation('Common');
@@ -46,9 +46,6 @@ export default function OrderDetailsNewUi() {
   );
 
 
-    function handleApplyFilter(): void {
-        throw new Error('Function not implemented.');
-    }
 
     function handleApproveItems(): void {
         throw new Error('Function not implemented.');
@@ -58,13 +55,13 @@ export default function OrderDetailsNewUi() {
         throw new Error('Function not implemented.');
     }
 
-    function handleTabChange(activeTab: number, event: SyntheticEvent<Element, Event>): void {
+    function handleTabChange(_activeTab: number, _event: SyntheticEvent<Element, Event>): void {
         throw new Error('Function not implemented.');
     }
  // ==========for syicky location================
        
       const sectionScrollerRef = useRef<HTMLDivElement>(null);
-      const isPageHeadingVisible = useHideOnScroll(sectionScrollerRef, {
+      const isPageHeadingVisible = useHideOnScroll(sectionScrollerRef as RefObject<HTMLElement>, {
         downThreshold: 20,
         scrollUpThreshold: 20,
       });

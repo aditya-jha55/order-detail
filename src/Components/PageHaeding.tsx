@@ -17,10 +17,8 @@ export default function PageHeading(props: PageHeadingProps) {
     buttonChildren,
     pageTitle,
     pageName,
-    navigateUrl,
     isNestedBreadcrum,
     breadcrumNested,
-    onBackClick,
     className
   } = props;
   return (

@@ -210,7 +210,7 @@ export default function ServiceTab(props: Props) {
                       </tr>
                     </thead>
                     <tbody>
-                      {[1, 2, 3, 4, 5].map(a => {
+                      {[1, 2, 3, 4, 5].map(() => {
                         return (
                           <>
                             <tr>
@@ -348,7 +348,7 @@ export default function ServiceTab(props: Props) {
                       </tr>
                     </thead>
                     <tbody>
-                      {[1, 2, 3, 4, 5].map(a => {
+                      {[1, 2, 3, 4, 5].map(() => {
                         return (
                           <>
                             <tr>
@@ -486,7 +486,7 @@ export default function ServiceTab(props: Props) {
                       </tr>
                     </thead>
                     <tbody>
-                     {[1, 2, 3, 4, 5].map(a => {
+                     {[1, 2, 3, 4, 5].map(() => {
                         return (
                           <>
                             <tr>
@@ -624,7 +624,7 @@ export default function ServiceTab(props: Props) {
                       </tr>
                     </thead>
                     <tbody>
-                      {[1, 2, 3, 4, 5].map(a => {
+                      {[1, 2, 3, 4, 5].map(() => {
                         return (
                           <>
                             <tr>

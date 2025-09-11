@@ -1,14 +1,8 @@
-import React from 'react';
+
 import { Link } from '@mui/material';
 import { ROUTES } from '../helpers/contants';
-import { useLocation } from 'react-router-dom';
-import { useDTranslation } from '../customHooks';
 
 export default function Footer() {
-  const location = useLocation();
-  const { t } = useDTranslation('translation', {
-    keyPrefix: 'footer',
-  });
   return (
     <footer className="footer">
       <div className="nav">
@@ -19,7 +13,7 @@ export default function Footer() {
             href={ROUTES.SUPPORT}
             target={'_blank'}
           >
-            {t('contact_us')}
+            Contact Us
           </Link>
           <Link
             underline="none"
@@ -27,7 +21,7 @@ export default function Footer() {
             href={ROUTES.POLICIES}
             target={'_blank'}
           >
-            {t('privacy_policy')}
+            Privacy Policy
           </Link>
           <Link
             underline="none"
@@ -35,7 +29,7 @@ export default function Footer() {
             href={ROUTES.TERMS}
             target={'_blank'}
           >
-            {t('terms_and_conditions')}
+            Terms And Conditions
           </Link>
           <Link
             underline="none"
@@ -43,12 +37,12 @@ export default function Footer() {
             href={ROUTES.FAQ}
             target={'_blank'}
           >
-            {t('faqs')}
+            Faqs
           </Link>
         </nav>
       </div>
       <div className="copyright">
-        <p>{t('copyright')}</p>
+        <p>Copyright</p>
       </div>
     </footer>
   );

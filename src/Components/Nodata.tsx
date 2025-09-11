@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import Images from '../Utils/images';
 import CustomButton from './CustomButton';
 import { Box } from '@mui/material';

@@ -12,7 +12,7 @@ export default function Success(props: Props) {
   const { heading, title, buttonText, handleClick } = props;
   return (
     <div className="success">
-      <img src={Images.SUCCESS_GIF} alt={heading} />
+      <img src={Images.SUCCESS_IC} alt={heading} />
       <h3>{heading}</h3>
       <p>{title}</p>
       <CustomButton

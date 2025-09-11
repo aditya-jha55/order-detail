@@ -1,4 +1,4 @@
-import { useDTranslation } from "../../../customHooks";
+
 import Images from "../../../Utils/images";
 
 
@@ -16,16 +16,8 @@ interface OrderNameCardProps {
 
 export default function OrderNameCard({
   setName,
-  setId,
-  isEditMode,
-  isCbChecked = false,
-  isCBIndeterminate = false,
-  disableCheckbox,
-  onCheckboxChange,
-  loading,
 }: OrderNameCardProps) {
 
-  const t = useDTranslation('orders.detail');
   return (
     <div className="order_name">
       <div className="order_name_inner">
@@ -56,7 +48,7 @@ export default function OrderNameCard({
           <h3>{setName}</h3>
           
             <p>
-              {t('poNumber')}: 12345
+              PO Number 12345
             </p>
           
         </div>

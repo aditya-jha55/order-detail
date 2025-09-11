@@ -12,7 +12,7 @@ interface Props {
   containerRef?: any | null;
 }
 
-export default function SideNavigation({ containerRef }: Props) {
+export default function SideNavigation({ }: Props) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const open = Boolean(anchorEl);

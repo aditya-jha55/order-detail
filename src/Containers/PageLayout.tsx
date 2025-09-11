@@ -1,6 +1,7 @@
-import * as React from 'react';
+
 import SideNavigation from './SideNavigation';
 import Header from './Header';
+import type { JSX } from 'react';
 
 interface Props {
   children?: JSX.Element | JSX.Element[];
