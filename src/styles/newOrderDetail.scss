@@ -203,7 +203,7 @@ td {
       table {
         thead {
           position: sticky;
-          top: 165px;
+          top: 150px;
           z-index: 8;
         }
       }
@@ -214,7 +214,7 @@ td {
     width: 100%;
     height: auto;
     left: 0;
-    top: 80px;
+    top: 65px;
     box-shadow: 0 0 20px rgb(191 191 191 / 49%);
     z-index: 9;
     // transform: translateY(-80px);
@@ -277,7 +277,7 @@ thead tr:nth-child(2) th {
 .new_detail_section {
   overflow-y: auto;
   overflow-x: auto;
-  max-height: calc(100vh - 390px);
+  max-height: calc(100vh - 350px);
 }
 .setDate {
   height: 100%;

@@ -2,6 +2,7 @@
 import SideNavigation from './SideNavigation';
 import Header from './Header';
 import type { JSX } from 'react';
+import Footer from './Footer';
 
 interface Props {
   children?: JSX.Element | JSX.Element[];
@@ -28,6 +29,7 @@ export default function PageLayout(props: Props) {
       ></div>
     </div>
     </div>
+    <Footer></Footer>
    </div>
   );
 }

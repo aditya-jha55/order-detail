@@ -101,7 +101,9 @@ nav,
 section {
   display: block;
 }
-
+#root {
+  width: 100%;
+}
 body {
   line-height: 1;
 }
@@ -6508,7 +6510,7 @@ button {
   }
 
   &.order_detail {
-    height: calc(100vh - 315px);
+    height: calc(100vh - 275px);
     transition: 0.3s ease-in-out transform;
     &.draft_detail {
       height: calc(100vh - 345px);

@@ -121,7 +121,7 @@ export default function ServiceTab(props: Props) {
                 <thead>
                   <tr>
                     <th>Service</th>
-                    <th>elivery Status</th>
+                    <th>Delivery Status</th>
                     <th>Details</th>
                     <th>Qty.</th>
                     <th>Units</th>

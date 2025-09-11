@@ -252,11 +252,27 @@ export default function OrderDetailsNewUi() {
                 <div className="setDate"><h2>Aug 10, 2023 – Aug 16, 2023</h2></div>
               </Grid>
             </Grid>
-            <div className="new_detail_section" ref={sectionScrollerRef}>
-          <SectionContainer
+
+            <Grid size = {{xs: 12}}>
+              <div className={clsx('sectionContainer')}>
+                  <div className="sectionHeadings">
+                        <h3>{t('items_overview')}</h3>
+                      </div>
+                    <div className={clsx('sectionBody')}>
+                     
+                    </div>
+                  </div>
+            </Grid>
+            
+          {/* <SectionContainer
               heading={t('items_overview')}
               children={
-                <div className="formContainer">
+                
+              }
+              // className='new_detail_section'
+              // ref={sectionScrollerRef}
+            /> */}
+            <div className="formContainer">
                   <div className="tabs">
                     <Box sx={{ width: '100%' }} padding={0}>
                       <Box
@@ -290,6 +306,7 @@ export default function OrderDetailsNewUi() {
                           </>
                       </Box>
                       <Box sx={{ pt: 1, px: 0, pb: 0 }}>
+                        <div className="new_detail_section" ref={sectionScrollerRef}>
                         <div className="tabContainer">
                           <TabElements
                             activeTab={activeTab}
@@ -301,15 +318,12 @@ export default function OrderDetailsNewUi() {
                             label={tabCategory}
                           />
                         </div>
+                         </div>
                       </Box>
                     </Box>
                   </div>
                 </div>
-              }
-              // className='new_detail_section'
-              // ref={sectionScrollerRef}
-            />
-            </div>
+           
             
           </div>
         

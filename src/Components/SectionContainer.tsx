@@ -14,11 +14,13 @@ export default function SectionContainer(props: Props) {
   return (
     <div className={clsx('sectionContainer', className)}>
       {hideHeader && (
-        <div className="sectionHeadings">
+        <div className="ss_heading">
+          <div className="sectionHeadings">
           <h3>{heading}</h3>
           <div className="sectionButton">
             {ButtonNode}
           </div>
+        </div>
         </div>
       )}
       <div className={clsx('sectionBody', { no_heading: !hideHeader })}>
