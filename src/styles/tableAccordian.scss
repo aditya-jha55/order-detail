@@ -1,0 +1,248 @@
+.reelTableContainer {
+  &.fixedTd {
+    // overflow-x: auto;
+    .MuiTableContainer-root {
+      overflow-x: visible;
+    }
+
+    &.subStickyHeader {
+      // overflow-x: auto;
+      // position: sticky;
+      // top: 0;
+      // max-height: 450px;
+      // max-height: calc(100vh - 395px);
+      // overflow-x: auto;
+      // outline: 1px solid var(--primary_blue_500);
+      margin-bottom: 10px;
+      padding-bottom: 50px;
+      margin-right: 5px;
+      &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        border-radius: 20px;
+      }
+    }
+  }
+}
+// .stickyHeader {
+//   overflow-x: visible !important;
+//   position: sticky;
+//   top: 0;
+//   z-index: 1;
+// }
+
+.accordianTable {
+  table {
+    thead {
+      tr {
+        th {
+          min-width: 140px;
+          // outline: 1px solid red;
+          &.date {
+            min-width: 240px !important;
+            max-width: 240px !important;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          min-width: 140px;
+          max-width: 140px;
+          &:first-child {
+            min-width: 80px;
+          }
+          &:last-child {
+            position: sticky;
+            right: 0;
+            max-width: 120px !important;
+            min-width: 120px !important;
+          }
+          // outline: 1px solid blue;
+          &.date {
+            min-width: 240px !important;
+            max-width: 240px !important;
+          }
+          &.time {
+            min-width: 220px;
+            max-width: 220px;
+            padding-bottom: 0;
+            .MuiFormControl-root {
+              height: 57px;
+            }
+            .MuiFormLabel-root {
+              display: none;
+            }
+          }
+          &.no_padding {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+  .MuiAccordionSummary-expandIconWrapper {
+    display: none;
+  }
+  .MuiAccordion-root {
+    box-shadow: none;
+    // margin: 0 -10px;
+  }
+  .MuiAccordionSummary-root {
+    min-height: auto;
+    padding: 0;
+    cursor: default;
+  }
+  .MuiAccordionSummary-content {
+    margin: 0;
+    cursor: default;
+    &.Mui-expanded {
+      .border_btn {
+        img {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  .MuiAccordionDetails-root {
+    padding: 0 0 0 30px;
+  }
+}
+.reelTable {
+  &.accordianTable {
+    &.sticky_column {
+      thead {
+        tr {
+          th {
+            &:last-child {
+              max-width: 120px !important;
+              min-width: 120px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.inAccordianTable {
+  thead {
+    tr {
+      th {
+        min-width: 140px;
+        // outline: 1px solid red;
+        &:first-child {
+          &:not(.isGlobalApproved) {
+            max-width: 50px;
+            min-width: 50px !important;
+          }
+        }
+        &:nth-child(2) {
+          &:not(.isGlobalApproved) {
+            max-width: 80px !important;
+            min-width: 80px !important;
+          }
+        }
+        &:last-child {
+          max-width: 90px !important;
+          min-width: 90px !important;
+        }
+        &.date {
+          min-width: 240px;
+          max-width: 240px;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        min-width: 140px;
+        max-width: 140px;
+        &:first-child {
+          &:not(.isGlobalApproved) {
+            min-width: 50px !important;
+            max-width: 50px;
+          }
+        }
+        &:nth-child(2) {
+          &:not(.isGlobalApproved) {
+            min-width: 80px;
+            max-width: 80px;
+          }
+        }
+        &:last-child {
+          position: sticky;
+          right: 0;
+          max-width: 90px !important;
+          min-width: 90px !important;
+        }
+        // outline: 1px solid blue;
+        &.date {
+          min-width: 240px;
+          max-width: 240px;
+        }
+        &.no_padding {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+.acc_detail {
+  // border: 1px solid green;
+  // background-color: antiquewhite;
+  max-width: calc(100vw - 382px);
+  max-height: 300px;
+  overflow: auto;
+  position: sticky;
+  left: 0;
+
+  @media screen and (max-width: 1280px) {
+    max-width: calc(100vw - 40px);
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  table {
+    thead {
+      position: relative;
+      z-index: 1;
+      tr {
+        th {
+          // outline: 1px solid red;
+          position: sticky;
+          top: 0;
+          &:last-child {
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          // outline: 1px solid red;
+        }
+      }
+    }
+  }
+}
+// MuiAccordionSummary-content Mui-expanded
+// MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-t2qykv-MuiPaper-root-MuiAccordion-root
+
+.SubItemsTable {
+  &.order_sub {
+    .reelTableContainer {
+      &.fixedTd {
+        &.subStickyHeader {
+          max-height: calc(100vh - 405px);
+        }
+      }
+    }
+  }
+}
