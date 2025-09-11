@@ -94,7 +94,7 @@ export default function SideNavigation({ }: Props) {
           <li key={index}>
             <Link
               title={values.name}
-              to={""}
+              to={"javascript:void(0)"}
               onClick={e => {
                 const container = document.getElementById('main_container');
                 if (container) container.scrollTop = 0;
