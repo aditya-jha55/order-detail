@@ -9,14 +9,27 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import clsx from 'clsx';
 import Images from '../../../Utils/images';
 import { CustomSelect } from '../../../Components';
+import ServiceOverviewPricingDialog from './ServiceOverviewPricing';
+import React from 'react';
+import ShiftDetailPricingDialog from './ShiftDetailPricingDialog';
 
 interface Props{
   pageScroll: boolean
 }
 export default function ServiceTab(props: Props) {
   const {pageScroll} = props
-  
+  const [serviceOpen, SerServiceOpen] = React.useState(false);
+  const [detailOpen, SetDetailOpen] = React.useState(false);
+  const [expanded, setExpanded] = React.useState<string | false>(false);
+
+  const toggleAccordion = (panel: string) => {
+    setExpanded((prev) => (prev === panel ? false : panel));
+    // console.log(`${panel} is ${expanded === panel ? "collapsed" : "expanded"}`);
+  };
+  const isAnyOpen = expanded !== false;
+  console.log(isAnyOpen)
   return (
+    <>
     <div
       className={clsx('table-container')}
     >
@@ -53,7 +66,7 @@ export default function ServiceTab(props: Props) {
             </th>
           </tr>
         </thead>
-        {!pageScroll &&
+        {!pageScroll && isAnyOpen &&
         <thead className="common_accord_row">
             <tr>
               <th>
@@ -125,7 +138,7 @@ export default function ServiceTab(props: Props) {
                     <th>Details</th>
                     <th>Qty.</th>
                     <th>Units</th>
-                    <th>estimated Date & Time Range</th>
+                    <th>Estimated Date & Time Range</th>
                     <th>Attachment</th>
                     <th>Notes</th>
                     <th>Action</th>
@@ -138,11 +151,15 @@ export default function ServiceTab(props: Props) {
         <thead className="accord_row">
           <tr>
             <th colSpan={10}>
-              <Accordion>
+              <Accordion 
+              expanded={expanded === "panel1"}
+              >
                 <AccordionSummary
                   expandIcon={null}
                   aria-controls="panel1-content"
                   id="panel1-header"
+                  onClick={(e) => e.stopPropagation()}
+                  onFocus={(e) => e.stopPropagation()}
                 >
                   <table className="order_set_table">
                     <thead>
@@ -163,7 +180,7 @@ export default function ServiceTab(props: Props) {
                           <div className="status completed">Order Placed</div>
                         </th>
                         <th>
-                          <IconButton>
+                          <IconButton onClick={()=>SerServiceOpen(true)}>
                             <img src={Images.CALENDAR_SEARCH_IC} alt="" />
                           </IconButton>
                         </th>
@@ -188,7 +205,12 @@ export default function ServiceTab(props: Props) {
                             <IconButton>
                               <MoreVertIcon />
                             </IconButton>
-                            <IconButton>
+                            <IconButton
+                            onClick={(e) => {
+                                e.stopPropagation(); // prevent summary toggle
+                                toggleAccordion("panel1");
+                              }}
+                            >
                               <img src={Images.ARROW_DOWN} />
                             </IconButton>
                           </div>
@@ -199,7 +221,7 @@ export default function ServiceTab(props: Props) {
                 </AccordionSummary>
                 <AccordionDetails>
                   <table className="line_item_table">
-                    <thead className="th_heading">
+                    <thead className={clsx('th_heading', {th_headingScroll: !pageScroll})}>
                       <tr>
                         <th>Assignee</th>
                         <th>Shift Status</th>
@@ -247,7 +269,7 @@ export default function ServiceTab(props: Props) {
                                 />
                               </td>
                               <td>
-                                <IconButton>
+                                <IconButton onClick={()=>{SetDetailOpen(true)}}>
                                   <img src={Images.CALENDAR_SEARCH_IC} alt="" />
                                 </IconButton>
                               </td>
@@ -276,11 +298,13 @@ export default function ServiceTab(props: Props) {
         <thead className="accord_row">
           <tr>
             <th colSpan={10}>
-              <Accordion>
+              <Accordion  expanded={expanded === "panel2"}>
                 <AccordionSummary
                   expandIcon={null}
                   aria-controls="panel2-content"
                   id="panel2-header"
+                  onClick={(e) => e.stopPropagation()}
+                  onFocus={(e) => e.stopPropagation()}
                 >
                   <table className="order_set_table">
                     <thead>
@@ -326,7 +350,12 @@ export default function ServiceTab(props: Props) {
                             <IconButton>
                               <MoreVertIcon />
                             </IconButton>
-                            <IconButton>
+                            <IconButton
+                            onClick={(e) => {
+                                e.stopPropagation(); // prevent summary toggle
+                                toggleAccordion("panel2");
+                              }}
+                            >
                               <img src={Images.ARROW_DOWN} />
                             </IconButton>
                           </div>
@@ -337,7 +366,7 @@ export default function ServiceTab(props: Props) {
                 </AccordionSummary>
                 <AccordionDetails>
                   <table className="line_item_table">
-                    <thead className="th_heading">
+                    <thead className={clsx('th_heading', {th_headingScroll: !pageScroll})}>
                       <tr>
                         <th>Assignee</th>
                         <th>Shift Status</th>
@@ -414,11 +443,13 @@ export default function ServiceTab(props: Props) {
         <thead className="accord_row">
           <tr>
             <th colSpan={10}>
-              <Accordion>
+              <Accordion  expanded={expanded === "panel3"}>
                 <AccordionSummary
                   expandIcon={null}
                   aria-controls="panel3-content"
                   id="panel3-header"
+                  onClick={(e) => e.stopPropagation()}
+                  onFocus={(e) => e.stopPropagation()}
                 >
                   <table className="order_set_table">
                     <thead>
@@ -464,7 +495,12 @@ export default function ServiceTab(props: Props) {
                             <IconButton>
                               <MoreVertIcon />
                             </IconButton>
-                            <IconButton>
+                            <IconButton
+                             onClick={(e) => {
+                                e.stopPropagation(); // prevent summary toggle
+                                toggleAccordion("panel3");
+                              }}
+                            >
                               <img src={Images.ARROW_DOWN} />
                             </IconButton>
                           </div>
@@ -475,7 +511,7 @@ export default function ServiceTab(props: Props) {
                 </AccordionSummary>
                 <AccordionDetails>
                   <table className="line_item_table">
-                    <thead className="th_heading">
+                    <thead className={clsx('th_heading', {th_headingScroll: !pageScroll})}>
                       <tr>
                         <th>Assignee</th>
                         <th>Shift Status</th>
@@ -552,11 +588,13 @@ export default function ServiceTab(props: Props) {
         <thead className="accord_row">
           <tr>
             <th colSpan={10}>
-              <Accordion>
+              <Accordion  expanded={expanded === "panel4"}>
                 <AccordionSummary
                   expandIcon={null}
                   aria-controls="panel4-content"
                   id="panel4-header"
+                  onClick={(e) => e.stopPropagation()}
+                  onFocus={(e) => e.stopPropagation()}
                 >
                   <table className="order_set_table">
                     <thead>
@@ -602,7 +640,12 @@ export default function ServiceTab(props: Props) {
                             <IconButton>
                               <MoreVertIcon />
                             </IconButton>
-                            <IconButton>
+                            <IconButton
+                             onClick={(e) => {
+                                e.stopPropagation(); // prevent summary toggle
+                                toggleAccordion("panel4");
+                              }}
+                            >
                               <img src={Images.ARROW_DOWN} />
                             </IconButton>
                           </div>
@@ -613,7 +656,7 @@ export default function ServiceTab(props: Props) {
                 </AccordionSummary>
                 <AccordionDetails>
                   <table className="line_item_table">
-                    <thead className="th_heading">
+                    <thead className={clsx('th_heading', {th_headingScroll: !pageScroll})}>
                       <tr>
                         <th>Assignee</th>
                         <th>Shift Status</th>
@@ -689,5 +732,8 @@ export default function ServiceTab(props: Props) {
         </thead>
       </table>
     </div>
+    <ServiceOverviewPricingDialog open={serviceOpen} handleClose={()=>{SerServiceOpen(false)}}/>
+      <ShiftDetailPricingDialog open={detailOpen} handleClose={()=>{SetDetailOpen(false)}}/>
+    </>
   );
 }

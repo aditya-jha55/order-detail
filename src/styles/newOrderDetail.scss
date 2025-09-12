@@ -10,6 +10,18 @@
     opacity: 1;
   }
 }
+@keyframes slowHide {
+  from {
+    transform: translateY(0);
+    height: auto;
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    height: 0;
+    opacity: 0;
+  }
+}
 
 .table-container {
   max-width: 100%; /* scrollable horizontally */
@@ -33,9 +45,23 @@ table {
           white-space: nowrap;
           &:nth-child(1),
           &:nth-child(6) {
-            min-width: 240px;
-            max-width: 240px;
-            width: 240px;
+            min-width: 200px;
+            max-width: 200px;
+            width: 200px;
+          }
+          &:nth-child(2),
+          &:nth-child(7) {
+            min-width: 130px;
+            max-width: 130px;
+            width: 130px;
+          }
+          &:nth-child(3),
+          &:nth-child(4),
+          &:nth-child(5),
+          &:nth-child(8) {
+            min-width: 90px;
+            max-width: 90px;
+            width: 90px;
           }
           &:nth-child(2),
           &:nth-child(3),
@@ -48,9 +74,9 @@ table {
 
           &:last-child {
             text-align: center;
-            min-width: 148px !important;
-            max-width: 148px !important;
-            width: 148px !important;
+            min-width: 90px !important;
+            max-width: 90px !important;
+            width: 90px !important;
           }
         }
       }
@@ -66,9 +92,23 @@ table {
           white-space: nowrap;
           &:nth-child(1),
           &:nth-child(6) {
-            min-width: 240px;
-            max-width: 240px;
-            width: 240px;
+            min-width: 200px;
+            max-width: 200px;
+            width: 200px;
+          }
+          &:nth-child(2),
+          &:nth-child(7) {
+            min-width: 130px;
+            max-width: 130px;
+            width: 130px;
+          }
+          &:nth-child(3),
+          &:nth-child(4),
+          &:nth-child(5),
+          &:nth-child(8) {
+            min-width: 90px;
+            max-width: 90px;
+            width: 90px;
           }
           &:nth-child(2),
           &:nth-child(3),
@@ -203,8 +243,11 @@ td {
       table {
         thead {
           position: sticky;
-          top: 150px;
+          top: 0;
           z-index: 8;
+          &.th_headingScroll {
+            top: 150px;
+          }
         }
       }
     }
@@ -245,12 +288,15 @@ td {
   }
 }
 thead th {
-  @include minxins.font("Poppins", 500, 14px, var(--gray_600), 1.4);
+  @include minxins.font("Poppins", 500, 12px, var(--gray_600), 1.4);
 }
 .accord_row {
+  thead th {
+    @include minxins.font("Poppins", 400, 12px, var(--gray_600), 1.4);
+  }
   .MuiAccordionSummary-content {
     border-bottom: 1px solid var(--border);
-    padding: 0px 0 20px;
+    padding: 0px 0 10px;
   }
 }
 /* Nested second row of header */
@@ -292,4 +338,96 @@ thead tr:nth-child(2) th {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.tabsContainer {
+  &.order_detail_tabs {
+    &.tabsScrolled {
+      height: 0;
+      opacity: 0;
+    }
+  }
+}
+.hideSection {
+  display: none !important;
+  // height: 0;
+  // opacity: 0;
+  // animation: slowHide 0.5s ease-in-out;
+}
+.doalogBody {
+  max-height: calc(80vh - 30px);
+  overflow: auto;
+  padding-right: 5px;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+.order_name_inner {
+  .info {
+    flex: 1;
+    ul {
+      display: flex;
+      li {
+        flex: 3;
+        p {
+          margin-bottom: 2px !important;
+          &.light {
+            @include minxins.font("Poppins", 400, 12px, var(--gray_500), 1.4);
+          }
+          &.dark {
+            @include minxins.font("Poppins", 500, 12px, var(--gray_900), 1.4);
+          }
+        }
+      }
+    }
+  }
+}
+.schedule {
+  h3 {
+    @include minxins.font("Poppins", 500, 14px, var(--black), 1.4);
+  }
+  p {
+    @include minxins.font("Poppins", 500, 14px, var(--gray_500), 1.4);
+    margin: 10px 0 !important;
+  }
+}
+.commonData {
+  h3 {
+    @include minxins.font("Poppins", 500, 14px, var(--black), 1.4);
+  }
+  .MuiGrid-container {
+    margin-bottom: 10px;
+  }
+  p {
+    margin-bottom: 1px !important;
+    @include minxins.font("Poppins", 400, 14px, var(--gray_500), 1.4);
+    &.small {
+      @include minxins.font(
+        "Poppins",
+        400 !important,
+        12px !important,
+        var(--gray_500) !important,
+        1.4
+      );
+    }
+    &.black {
+      @include minxins.font(
+        "Poppins",
+        600 !important,
+        14px !important,
+        var(--black) !important,
+        1.4
+      );
+    }
+    &.note {
+      @include minxins.font(
+        "Poppins",
+        400 !important,
+        14px !important,
+        var(--gray_500) !important,
+        1.4
+      );
+      font-style: italic;
+      text-align: right !important;
+    }
+  }
 }

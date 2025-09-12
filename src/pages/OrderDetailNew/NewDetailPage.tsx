@@ -62,8 +62,8 @@ export default function OrderDetailsNewUi() {
        
       const sectionScrollerRef = useRef<HTMLDivElement>(null);
       const isPageHeadingVisible = useHideOnScroll(sectionScrollerRef as RefObject<HTMLElement>, {
-        downThreshold: 20,
-        scrollUpThreshold: 20,
+        downThreshold: 50,
+        scrollUpThreshold: 50,
       });
 
         useEffect(() => {
@@ -241,7 +241,7 @@ export default function OrderDetailsNewUi() {
                 </>
               }
             />
-            <Grid container spacing={2}>
+            <Grid container spacing={2} className={clsx({hideSection: !isPageHeadingVisible})}>
               <Grid size={{ xs: 12, md: 6 }}>
                 <OrderNameCard
                   setId=""
@@ -253,14 +253,12 @@ export default function OrderDetailsNewUi() {
               </Grid>
             </Grid>
 
-            <Grid size = {{xs: 12}}>
+            <Grid size = {{xs: 12}} className={clsx({hideSection: !isPageHeadingVisible})}>
               <div className={clsx('sectionContainer')}>
                   <div className="sectionHeadings">
                         <h3>{t('items_overview')}</h3>
                       </div>
-                    <div className={clsx('sectionBody')}>
-                     
-                    </div>
+                  
                   </div>
             </Grid>
             
@@ -277,7 +275,7 @@ export default function OrderDetailsNewUi() {
                     <Box sx={{ width: '100%' }} padding={0}>
                       <Box
                         sx={{ borderBottom: 0, borderColor: 'divider' }}
-                        className="tabsContainer order_detail_tabs"
+                        className={clsx('tabsContainer order_detail_tabs', {tabsScrolled: !isPageHeadingVisible})}
                       >
                         <TabsList
                           activeTab={activeTab}
