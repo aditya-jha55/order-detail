@@ -62,8 +62,8 @@ export default function OrderDetailsNewUi() {
        
       const sectionScrollerRef = useRef<HTMLDivElement>(null);
       const isPageHeadingVisible = useHideOnScroll(sectionScrollerRef as RefObject<HTMLElement>, {
-        downThreshold: 50,
-        scrollUpThreshold: 50,
+        downThreshold: 100,
+        scrollUpThreshold: 100,
       });
 
         useEffect(() => {

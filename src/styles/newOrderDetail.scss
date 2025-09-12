@@ -431,3 +431,8 @@ thead tr:nth-child(2) th {
     }
   }
 }
+.setDate {
+  @include minxins.mobile-sm {
+    justify-content: flex-start;
+  }
+}
