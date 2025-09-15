@@ -98,7 +98,7 @@ export default function OrderDetailsNewUi() {
                   buttonChildren={
                     <div className="orderDetailTop">
                       <div className="topRow">
-                        {/* <p>{scrollPercent.toFixed(0)}%</p> */}
+                        <p>{scrollPercent.toFixed(0)}%</p>
                         <div className="filter_ac"></div>
                         <CustomButton
                           size="large"
@@ -126,7 +126,7 @@ export default function OrderDetailsNewUi() {
               </th>
             </tr>
           </thead>
-          <thead className={clsx({fadeOutSection: scrollPercent > 27})}>
+          <thead className={clsx({fadeOutSection: scrollPercent > 13})}>
             <tr>
               <th className="tr_text_left">
                 <SectionContainerCollapsable
