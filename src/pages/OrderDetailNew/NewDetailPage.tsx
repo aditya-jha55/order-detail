@@ -98,7 +98,7 @@ export default function OrderDetailsNewUi() {
                   buttonChildren={
                     <div className="orderDetailTop">
                       <div className="topRow">
-                        <p>{scrollPercent.toFixed(0)}%</p>
+                        {/* <p>{scrollPercent.toFixed(0)}%</p> */}
                         <div className="filter_ac"></div>
                         <CustomButton
                           size="large"
