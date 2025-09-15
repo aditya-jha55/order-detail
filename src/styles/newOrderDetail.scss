@@ -23,6 +23,17 @@
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+.fadeOutSection {
+  animation: fadeOut 0.5s ease-in forwards;
+}
 .table-container {
   max-width: 100%; /* scrollable horizontally */
   padding-bottom: 100px;
@@ -243,10 +254,14 @@ td {
       table {
         thead {
           position: sticky;
-          top: 0;
-          z-index: 8;
+          // top: 0;
+          // z-index: 8;
+          // top: 65px;
+          top: 145px;
+          z-index: 10;
           &.th_headingScroll {
-            top: 150px;
+            // top: 150px;
+            top: 226px;
           }
         }
       }
@@ -257,9 +272,11 @@ td {
     width: 100%;
     height: auto;
     left: 0;
-    top: 65px;
+    // top: 65px;
+    top: 146px;
     box-shadow: 0 0 20px rgb(191 191 191 / 49%);
-    z-index: 9;
+    z-index: 10;
+    animation: slideDown 0.5s ease-out;
     // transform: translateY(-80px);
     // opacity: 0;
     & > tr {
@@ -272,8 +289,8 @@ td {
   }
   &.loc_row {
     position: sticky;
-    top: 0;
-    z-index: 9;
+    top: 80px;
+    z-index: 10;
   }
 }
 .table-container {
@@ -320,11 +337,11 @@ thead tr:nth-child(2) th {
   flex: 1;
   text-align: left !important;
 }
-.new_detail_section {
-  overflow-y: auto;
-  overflow-x: auto;
-  max-height: calc(100vh - 350px);
-}
+// .new_detail_section {
+//   overflow-y: auto;
+//   overflow-x: auto;
+//   max-height: calc(100vh - 350px);
+// }
 .setDate {
   height: 100%;
   display: flex;
@@ -434,5 +451,38 @@ thead tr:nth-child(2) th {
 .setDate {
   @include minxins.mobile-sm {
     justify-content: flex-start;
+  }
+}
+.scroll_space {
+  height: 200px;
+}
+.pageBody {
+  &.main_order_detail {
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll;
+    overflow-x: auto;
+    padding-right: 4px;
+    .tabs {
+      margin-top: 10px;
+    }
+  }
+}
+.main_header {
+  position: sticky;
+  top: 65px !important;
+  z-index: 9;
+}
+.pageHeaderTr {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.serviceTableContainer {
+  position: sticky;
+  top: 80px;
+}
+th {
+  &.tr_text_left {
+    text-align: left;
   }
 }

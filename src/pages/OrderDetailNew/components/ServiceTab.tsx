@@ -20,7 +20,7 @@ export default function ServiceTab(props: Props) {
   const {pageScroll} = props
   const [serviceOpen, SerServiceOpen] = React.useState(false);
   const [detailOpen, SetDetailOpen] = React.useState(false);
-  const [expanded, setExpanded] = React.useState<string | false>(false);
+  const [expanded, setExpanded] = React.useState<string | false>("panel1");
 
   const toggleAccordion = (panel: string) => {
     setExpanded((prev) => (prev === panel ? false : panel));
