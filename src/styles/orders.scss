@@ -2894,7 +2894,7 @@
     border: 1px solid var(--gray_200);
     cursor: pointer;
     @include minxins.mobile-sm {
-      min-width: auto;
+      min-width: calc(100% - 10px);
     }
     &:hover {
       border: 1px solid var(--primary_blue_100);

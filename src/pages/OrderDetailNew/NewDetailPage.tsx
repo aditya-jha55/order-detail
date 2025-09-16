@@ -81,16 +81,246 @@ export default function OrderDetailsNewUi() {
   console.log(isPageHeadingVisible);
   const scrollPercent = useScrollPercentage(sectionScrollerRef);
   // ==========for syicky location================
+  const ww = window.innerWidth;
+  console.log(ww)
   return (
     <>
       <div
         className={clsx("pageBody main_order_detail")}
         ref={sectionScrollerRef}
       >
+        <div className="pageHeadingMobile">
+           <PageHeading
+                  pageTitle={t("title")}
+                  pageName={"Order Details"}
+                  navigateUrl={ROUTES.ORDERS}
+                  buttonChildren={
+                    <div className="orderDetailTop">
+                      <div className="topRow">
+                        {/* <p>{scrollPercent.toFixed(0)}%</p> */}
+                        <div className="filter_ac"></div>
+                        <CustomButton
+                          size="large"
+                          variant="outlined"
+                          text={t("cancel_order")}
+                          width="auto"
+                          id="cancel_order"
+                          onClick={handleCancelOrderItems}
+                        />
+                        <CustomButton
+                          size="large"
+                          variant="contained"
+                          text={t("approve_order")}
+                          showIcon={false}
+                          width="auto"
+                          type="submit"
+                          onClick={handleApproveItems}
+                          id="approve_order"
+                        />
+                        <ChatNowButton />
+                      </div>
+                    </div>
+                  }
+                />
+        </div>
+        <div className="mobileContainer">
+         
+
+                 <SectionContainerCollapsable
+                  heading={t("order_summary")}
+                  children={
+                    <>
+                      <div className="formContainer">
+                        <Grid container spacing={2} sx={{mb: 2}}>
+                          <Grid size={{ xs: 12, md: 4 }}>
+                            <FormLabel className="labelHeading">
+                              {t("production_name")}
+                            </FormLabel>
+                            <p className="labelText">Superhero Flims</p>
+                          </Grid>
+                          <Grid size={{ xs: 12, md: 4 }}>
+                            <FormLabel className="labelHeading">
+                              {t("order_id")}{" "}
+                            </FormLabel>
+                            <p className="labelText">JHFFD-HDGTE-2746</p>
+                          </Grid>
+                          <Grid
+                            size={{ xs: 12, md: 4 }}
+                            container
+                            direction="column"
+                            spacing={0}
+                            sx={{
+                              alignItems: {
+                                xs: "flex-start", // on mobile
+                                md: "flex-end", // on desktop
+                              },
+                            }}
+                          >
+                            <FormLabel className="labelHeading">
+                              {tC("branch")}
+                            </FormLabel>
+                            <p className="labelText">
+                              Reels Security, Los Angeles
+                            </p>
+                          </Grid>
+                        </Grid>
+                        <Grid container spacing={2} sx={{mb: 2}}>
+                          <Grid size={{ xs: 12, md: 4 }}>
+                            <FormLabel className="labelHeading">
+                              {t("order_date")}
+                            </FormLabel>
+                            <p className="labelText">
+                              Oct 23, 2023 | 06:00 AM (EST)
+                            </p>
+                          </Grid>
+                          <Grid size={{ xs: 12, md: 4 }}>
+                            <FormLabel className="labelHeading">
+                              {tC("orderRange")}
+                            </FormLabel>
+                            <p className="labelText">
+                              Aug 10,2023 - Aug 13,2023
+                            </p>
+                          </Grid>
+
+                          <Grid
+                            container
+                            size={{ xs: 12, md: 4 }}
+                            direction="column"
+                            spacing={0}
+                            sx={{
+                              alignItems: {
+                                xs: "flex-start", // on mobile
+                                md: "flex-end", // on desktop
+                              },
+                            }}
+                          >
+                            <FormLabel className="labelHeading">
+                              {t("canceledBy")}
+                            </FormLabel>
+                            <p className="labelText">Jamie Falcon</p>
+                          </Grid>
+                        </Grid>
+                        <Grid container spacing={2} sx={{mb: 2}}>
+                          <Grid size={{ xs: 12, md: 4 }}>
+                            <FormLabel className="labelHeading">
+                              {t("order_by")}
+                            </FormLabel>
+                            <p className="labelText">Jamie Falcon</p>
+                          </Grid>
+                          <Grid size={{ xs: 12, md: 4 }}>
+                            <FormLabel className="labelHeading">
+                              {t("mobile_number")}
+                            </FormLabel>
+                            <p className="labelText">+1 (484) 457 8732</p>
+                          </Grid>
+                          <Grid
+                            size={{ xs: 12, md: 4 }}
+                            container
+                            direction="column"
+                            spacing={0}
+                            sx={{
+                              alignItems: {
+                                xs: "flex-start", // on mobile
+                                md: "flex-end", // on desktop
+                              },
+                            }}
+                          >
+                            <FormLabel className="labelHeading">
+                              {t("email_address")}
+                            </FormLabel>
+                            <p className="labelText">JamieFal@rediffmail.com</p>
+                          </Grid>
+                        </Grid>
+                        <Grid container spacing={2}>
+                          <Grid size={{ xs: 12, md: 4 }}>
+                            <FormLabel className="labelHeading">
+                              {t("set_name")}
+                            </FormLabel>
+
+                            <p className="labelText">-</p>
+                          </Grid>
+                          <Grid size={{ xs: 12, md: 4 }}>
+                            <FormLabel className="labelHeading">
+                              {t("desc")}
+                            </FormLabel>
+                            <p className="labelText">
+                              Lorem Ipsum is simply dummy text of the printing
+                              industry...
+                              <a href="">View More</a>
+                            </p>
+                          </Grid>
+                        </Grid>
+                      </div>
+                    </>
+                  }
+                />
+
+                <Grid
+                  container
+                  spacing={{xs: 1,sm: 1, md:2}}
+                  // className={clsx({ hideSection: !isPageHeadingVisible })}
+                >
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <OrderNameCard setId="" setName="INT. DANS'S HOUSE" />
+                  </Grid>
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <div className="setDate">
+                      <h2>Aug 10, 2023 – Aug 16, 2023</h2>
+                    </div>
+                  </Grid>
+                </Grid>
+
+                 <Grid
+                  size={{ xs: 12 }}
+                  // className={clsx({ hideSection: !isPageHeadingVisible })}
+                >
+                  <div className={clsx("sectionContainer")}>
+                    <div className="sectionHeadings">
+                      <h3>{t("items_overview")}</h3>
+                    </div>
+                  </div>
+                </Grid>
+
+                 <div className="tabs">
+                  <Box sx={{ width: "100%" }} padding={0}>
+                    <Box
+                      sx={{ borderBottom: 0, borderColor: "divider" }}
+                      className={clsx("tabsContainer order_detail_tabs", {
+                        // tabsScrolled: !isPageHeadingVisible,
+                      })}
+                    >
+                      <TabsList
+                        activeTab={activeTab}
+                        tabLabels={[
+                          `${tC("services")}`,
+                          `${tC("rentals")}`,
+                          `${tC("products")}`,
+                        ]}
+                        onTabChange={handleTabChange}
+                        category={tabCategory}
+                      />
+                      <>
+                        <Box sx={{ display: "flex", gap: 1 }}>
+                          {activeTab === 0 && (
+                            <CustomButton
+                              id="edit"
+                              text={tC("edit")}
+                              variant="outlined"
+                              icon={Images.EDIT_BLUE_IC}
+                              iconPosition="start"
+                              showIcon
+                            />
+                          )}
+                        </Box>
+                      </>
+                    </Box>
+                  </Box>
+                </div>
+        </div>
         <table>
-          <thead className="pageHeaderTr">
+          <thead className="pageHeaderTr desktopView">
             <tr>
-              <th>
+              <th colSpan={9}>
                 <PageHeading
                   pageTitle={t("title")}
                   pageName={"Order Details"}
@@ -126,15 +356,15 @@ export default function OrderDetailsNewUi() {
               </th>
             </tr>
           </thead>
-          <thead className={clsx({fadeOutSection: scrollPercent > 13})}>
+          <thead className={clsx('desktopView',{ fadeOutSection: scrollPercent > 13 })}>
             <tr>
-              <th className="tr_text_left">
+              <th className="tr_text_left" colSpan={9}>
                 <SectionContainerCollapsable
                   heading={t("order_summary")}
                   children={
                     <>
                       <div className="formContainer">
-                        <Grid container spacing={2}>
+                        <Grid container spacing={2} sx={{mb: 2}}>
                           <Grid size={{ xs: 12, md: 4 }}>
                             <FormLabel className="labelHeading">
                               {t("production_name")}
@@ -151,7 +381,13 @@ export default function OrderDetailsNewUi() {
                             size={{ xs: 12, md: 4 }}
                             container
                             direction="column"
-                            alignItems="flex-end"
+                            spacing={0}
+                            sx={{
+                              alignItems: {
+                                xs: "flex-start", // on mobile
+                                md: "flex-end", // on desktop
+                              },
+                            }}
                           >
                             <FormLabel className="labelHeading">
                               {tC("branch")}
@@ -161,7 +397,7 @@ export default function OrderDetailsNewUi() {
                             </p>
                           </Grid>
                         </Grid>
-                        <Grid container spacing={2}>
+                        <Grid container spacing={2} sx={{mb: 2}}>
                           <Grid size={{ xs: 12, md: 4 }}>
                             <FormLabel className="labelHeading">
                               {t("order_date")}
@@ -183,7 +419,13 @@ export default function OrderDetailsNewUi() {
                             container
                             size={{ xs: 12, md: 4 }}
                             direction="column"
-                            alignItems="flex-end"
+                            spacing={0}
+                            sx={{
+                              alignItems: {
+                                xs: "flex-start", // on mobile
+                                md: "flex-end", // on desktop
+                              },
+                            }}
                           >
                             <FormLabel className="labelHeading">
                               {t("canceledBy")}
@@ -191,7 +433,7 @@ export default function OrderDetailsNewUi() {
                             <p className="labelText">Jamie Falcon</p>
                           </Grid>
                         </Grid>
-                        <Grid container spacing={2}>
+                        <Grid container spacing={2} sx={{mb: 2}}>
                           <Grid size={{ xs: 12, md: 4 }}>
                             <FormLabel className="labelHeading">
                               {t("order_by")}
@@ -208,7 +450,13 @@ export default function OrderDetailsNewUi() {
                             size={{ xs: 12, md: 4 }}
                             container
                             direction="column"
-                            alignItems="flex-end"
+                            spacing={0}
+                            sx={{
+                              alignItems: {
+                                xs: "flex-start", // on mobile
+                                md: "flex-end", // on desktop
+                              },
+                            }}
                           >
                             <FormLabel className="labelHeading">
                               {t("email_address")}
@@ -244,10 +492,10 @@ export default function OrderDetailsNewUi() {
           </thead>
           <thead>
             <tr>
-              <th className="tr_text_left">
+              <th className="tr_text_left desktopView" colSpan={9}>
                 <Grid
                   container
-                  spacing={2}
+                  spacing={{xs: 1,sm: 1, md:2}}
                   // className={clsx({ hideSection: !isPageHeadingVisible })}
                 >
                   <Grid size={{ xs: 12, md: 6 }}>
@@ -264,7 +512,7 @@ export default function OrderDetailsNewUi() {
           </thead>
           <thead>
             <tr>
-              <th>
+              <th colSpan={9} className="desktopView">
                 <Grid
                   size={{ xs: 12 }}
                   // className={clsx({ hideSection: !isPageHeadingVisible })}
@@ -280,7 +528,7 @@ export default function OrderDetailsNewUi() {
           </thead>
           <thead>
             <tr>
-              <th>
+              <th colSpan={9} className="desktopView">
                 <div className="tabs">
                   <Box sx={{ width: "100%" }} padding={0}>
                     <Box
@@ -321,7 +569,7 @@ export default function OrderDetailsNewUi() {
           </thead>
           <thead className="serviceTableContainer">
             <tr>
-              <th>
+              <th colSpan={9}>
                 <Box sx={{ pt: 1, px: 0, pb: 0 }}>
                   <div
                     className="new_detail_section"
@@ -345,7 +593,7 @@ export default function OrderDetailsNewUi() {
           </thead>
           <thead>
             <tr>
-              <th>
+              <th colSpan={9}>
                 <div className="scroll_space"></div>
               </th>
             </tr>
