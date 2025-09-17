@@ -89,7 +89,7 @@ export default function ServiceTab(props: Props) {
                         <div className="status completed">Order Placed</div>
                       </th>
                       <th>
-                        <IconButton>
+                        <IconButton onClick={()=>SerServiceOpen(true)}>
                           <img src={Images.CALENDAR_SEARCH_IC} alt="" />
                         </IconButton>
                       </th>

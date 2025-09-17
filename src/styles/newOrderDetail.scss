@@ -617,6 +617,11 @@ thead tr:nth-child(2) th {
     }
   }
 }
+.set_name {
+  position: sticky;
+  top: 89px;
+  z-index: 9;
+}
 .order_name_inner {
   .info {
     flex: 1;
@@ -628,13 +633,22 @@ thead tr:nth-child(2) th {
           margin-bottom: 2px !important;
           &.light {
             @include minxins.font("Poppins", 400, 12px, var(--gray_500), 1.4);
+            @include minxins.tab-lg {
+              @include minxins.font("Poppins", 400, 11x, var(--gray_500), 1.4);
+            }
           }
           &.dark {
             @include minxins.font("Poppins", 500, 12px, var(--gray_900), 1.4);
+            @include minxins.tab-lg {
+              @include minxins.font("Poppins", 500, 11px, var(--gray_900), 1.4);
+            }
           }
         }
-        &:first-child {
+        &:not(:last-child):first-child {
           max-width: 70px;
+          @include minxins.tab-lg {
+            max-width: 40px;
+          }
           p {
             text-align: left;
           }
@@ -656,10 +670,16 @@ thead tr:nth-child(2) th {
 .schedule {
   h3 {
     @include minxins.font("Poppins", 500, 13px, var(--black), 1.4);
+    @include minxins.tab-lg {
+      @include minxins.font("Poppins", 500, 10px, var(--black), 1.4);
+    }
   }
   p {
     @include minxins.font("Poppins", 500, 14px, var(--gray_500), 1.4);
     margin: 10px 0 !important;
+    @include minxins.tab-lg {
+      margin: 5px 0 !important;
+    }
   }
 }
 .commonData {

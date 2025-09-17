@@ -2921,6 +2921,9 @@
         @include minxins.font("Poppins", 600, 16px, var(--black), 1.458);
         margin-bottom: 6px;
         text-align: left;
+        @include minxins.tab-lg {
+          @include minxins.font("Poppins", 500, 14px, var(--black), 1.458);
+        }
       }
       p {
         @include minxins.font("Poppins", 400, 14px, #797c7b, 1.458);

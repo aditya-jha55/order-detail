@@ -5584,7 +5584,7 @@ button {
       text-align: left;
 
       @include minxins.mobile-sm {
-        @include minxins.font("Poppins", 500, 20px, var(--black), 1.4);
+        @include minxins.font("Poppins", 500, 14px, var(--black), 1.4);
       }
 
       &.small {
@@ -10485,6 +10485,9 @@ button {
       h3 {
         @include minxins.font("Poppins", 600, 16px, var(--black), 1.458);
         margin-bottom: 6px;
+        @include minxins.tab-lg {
+          @include minxins.font("Poppins", 500, 14px, var(--black), 1.458);
+        }
       }
       p {
         @include minxins.font("Poppins", 400, 14px, #797c7b, 1.458);
@@ -10493,6 +10496,7 @@ button {
     &.in-dialog {
       margin: 20px 0px 10px 0px;
       width: 100%;
+      padding: 6px;
     }
   }
   .actions {

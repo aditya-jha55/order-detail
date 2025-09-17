@@ -514,7 +514,7 @@ export default function OrderDetailsNewUi() {
               </th>
             </tr>
           </thead>
-          <thead>
+          <thead className="set_name">
             <tr>
               <th className="tr_text_left desktopView" colSpan={9}>
                 <Grid
