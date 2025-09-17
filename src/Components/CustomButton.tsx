@@ -1,19 +1,18 @@
-import React, { type JSX, type RefObject } from 'react';
-import { Button, CircularProgress } from '@mui/material';
-
+import React, { type JSX, type RefObject } from "react";
+import { Button, CircularProgress } from "@mui/material";
 
 type CustomButtonProps = {
-  size?: 'small' | 'medium' | 'large';
-  variant?: 'contained' | 'outlined' | 'text';
+  size?: "small" | "medium" | "large";
+  variant?: "contained" | "outlined" | "text";
   text: JSX.Element | string;
   showIcon?: boolean;
-  iconPosition?: 'start' | 'end';
+  iconPosition?: "start" | "end";
   icon?: any;
-  width?: '100%' | 'auto' | string;
+  width?: "100%" | "auto" | string;
   onClick?: () => void;
-  type?: 'button' | 'reset' | 'submit';
+  type?: "button" | "reset" | "submit";
   disabled?: boolean;
-  iconType?: 'image' | 'svg';
+  iconType?: "image" | "svg";
   dashedBorder?: boolean;
   pressed?: boolean;
   onMouseDown?: () => void;
@@ -22,9 +21,10 @@ type CustomButtonProps = {
   loading?: boolean;
   className?: string;
   href?: string;
-  color?: 'primary' | 'secondary' | 'error' | 'info';
+  color?: "primary" | "secondary" | "error" | "info";
   ref?: RefObject<HTMLButtonElement>;
-} 
+  showIconOnMobileOnly?: boolean;
+};
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   size,
@@ -35,7 +35,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   icon,
   width,
   onClick,
-  type = 'button',
+  type = "button",
   disabled,
   iconType,
   dashedBorder,
@@ -45,13 +45,14 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   id,
   loading,
   className,
-  color = 'primary',
+  color = "primary",
   href,
-  ref
+  ref,
+  showIconOnMobileOnly = false,
 }) => {
   const windowWidth = window.innerWidth;
   return showIcon ? (
-    iconPosition === 'start' ? (
+    iconPosition === "start" ? (
       <Button
         onMouseDown={() => {
           if (onMouseDown) {
@@ -67,31 +68,32 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         ref={ref}
         tabIndex={0}
         // disabled={true}
-        onKeyDown={event => {
-          if (event.key === 'Enter') {
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
             const target = event.target as HTMLElement;
             // Simulate a click on the focused element when Enter is pressed
             target.click();
           }
         }}
         className={
-          variant === 'contained'
+          variant === "contained"
             ? `innerButtonContained ${
-                isMobileTextVisible ? '' : 'isMobileTextVisible'
-              }  ${className}`
-            : `innerButtonOutlined ${dashedBorder ? 'dashedBorder' : ''} ${
-                pressed ? 'pressed' : ''
+                isMobileTextVisible ? "" : "isMobileTextVisible"
+              }  ${className} ${showIconOnMobileOnly && "showIconOnMobileOnly"}`
+            : `innerButtonOutlined ${dashedBorder ? "dashedBorder" : ""} ${
+                pressed ? "pressed" : ""
               }
-            ${isMobileTextVisible ? '' : 'isMobileTextVisible'}
-            ${className}
+            ${isMobileTextVisible ? "" : "isMobileTextVisible"}
+            ${showIconOnMobileOnly && "showIconOnMobileOnly"}
+            ${className} 1__1
             `
         }
         sx={{
-          width: { width }
+          width: { width },
         }}
         variant={variant}
         startIcon={
-          iconType === 'svg' ? (
+          iconType === "svg" ? (
             icon
           ) : (
             <img src={icon} alt={""} role="presentation" />
@@ -100,7 +102,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         disableElevation
         disableFocusRipple
       >
-        {isMobileTextVisible ? text : <> {windowWidth > 768 ? text : ''}</>}
+        {isMobileTextVisible ? text : <> {windowWidth > 768 ? text : ""}</>}
       </Button>
     ) : (
       <Button
@@ -116,23 +118,20 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         disabled={disabled}
         tabIndex={0}
         className={
-          variant === 'contained'
-            ? `innerButtonContained ${
-                isMobileTextVisible ? '' : 'isMobileTextVisible'
-              }`
-            : `innerButtonOutlined ${dashedBorder ? 'dashedBorder' : ''} ${
-                pressed ? 'pressed' : ''
-              }
-            ${isMobileTextVisible ? '' : 'isMobileTextVisible'}  ${className} ${
-                loading && 'loading_btn'
-              }`
+          variant === "contained"
+            ? `innerButtonContained ${isMobileTextVisible ? "" : "isMobileTextVisible"}`
+            : `innerButtonOutlined ${dashedBorder ? "dashedBorder" : ""} ${pressed ? "pressed" : ""}
+            ${isMobileTextVisible ? "" : "isMobileTextVisible"}  
+            ${className} 
+            ${loading && "loading_btn"}
+            ${showIconOnMobileOnly && "showIconOnMobileOnly"} 2__2`
         }
         sx={{
-          width: { width }
+          width: { width },
         }}
         variant={variant}
         endIcon={
-          iconType === 'svg' ? (
+          iconType === "svg" ? (
             icon
           ) : (
             <img src={icon} alt={""} role="presentation" />
@@ -140,8 +139,8 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         }
         disableElevation
         disableFocusRipple
-        onKeyDown={event => {
-          if (event.key === 'Enter') {
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
             const target = event.target as HTMLElement;
             // Simulate a click on the focused element when Enter is pressed
             target.click();
@@ -150,7 +149,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         ref={ref}
       >
         {/* {windowWidth > 768 ? text : ''} */}
-        {isMobileTextVisible ? text : <> {windowWidth > 768 ? text : ''}</>}
+        {isMobileTextVisible ? text : <> {windowWidth > 768 ? text : ""}</>}
       </Button>
     )
   ) : (
@@ -170,17 +169,20 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       size={size}
       variant={variant}
       className={`customButton ${
-        variant === 'contained' ? 'customBtnPrimary' : 'customBtnSecondary'
-      } ${dashedBorder ? 'dashedBorder' : ''} ${
-        pressed ? 'pressed' : ''
-      }  ${className}  ${loading && 'loading_btn'}`}
+        variant === "contained" ? "customBtnPrimary" : "customBtnSecondary"} 
+        ${dashedBorder ? "dashedBorder" : ""} 
+        ${pressed ? "pressed" : ""}  
+        ${className}  
+        ${loading && "loading_btn"}
+        ${showIconOnMobileOnly && "showIconOnMobileOnly"} 3__3
+      `}
       sx={{
-        width: { width }
+        width: { width },
       }}
       disableElevation
       disableFocusRipple
-      onKeyDown={event => {
-        if (event.key === 'Enter') {
+      onKeyDown={(event) => {
+        if (event.key === "Enter") {
           const target = event.target as HTMLElement;
           // Simulate a click on the focused element when Enter is pressed
           target.click();
@@ -188,7 +190,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       }}
       startIcon={
         loading ? (
-          <CircularProgress size={18} sx={{ color: '#ffffff' }} />
+          <CircularProgress size={18} sx={{ color: "#ffffff" }} />
         ) : null
       }
       ref={ref}

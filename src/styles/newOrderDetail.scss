@@ -42,6 +42,11 @@
   .MuiAccordionSummary-root {
     padding: 0;
   }
+  .MuiAccordionDetails-root {
+    @include minxins.tab-lg {
+      padding: 8px 0 16px 10px;
+    }
+  }
 }
 table {
   &.order_set_table {
@@ -54,17 +59,34 @@ table {
           width: 148px;
           word-wrap: break-word;
           white-space: nowrap;
+          @include minxins.tab-lg {
+            min-width: auto;
+            max-width: max-content;
+            width: auto;
+            white-space: normal;
+            word-break: break-all;
+          }
           &:nth-child(1),
           &:nth-child(6) {
             min-width: 200px;
             max-width: 200px;
             width: 200px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
           }
           &:nth-child(2),
           &:nth-child(7) {
             min-width: 130px;
             max-width: 130px;
             width: 130px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
           }
           &:nth-child(3),
           &:nth-child(4),
@@ -73,6 +95,14 @@ table {
             min-width: 90px;
             max-width: 90px;
             width: 90px;
+            @include minxins.tab-lg {
+              min-width: 50px;
+              max-width: 50px;
+              width: 50px;
+              // min-width: auto;
+              // max-width: max-content;
+              // width: auto;
+            }
           }
           &:nth-child(2),
           &:nth-child(3),
@@ -88,6 +118,16 @@ table {
             min-width: 90px !important;
             max-width: 90px !important;
             width: 90px !important;
+            @include minxins.tab-lg {
+              min-width: 90px !important;
+              max-width: 90px !important;
+              width: 90px !important;
+            }
+            @include minxins.mobile-sm {
+              min-width: 60px !important;
+              max-width: 60px !important;
+              width: 60px !important;
+            }
           }
         }
       }
@@ -99,6 +139,11 @@ table {
           min-width: 148px;
           max-width: 148px;
           width: 148px;
+          @include minxins.tab-lg {
+            min-width: auto;
+            max-width: max-content;
+            width: auto;
+          }
           word-wrap: break-word;
           white-space: nowrap;
           &:nth-child(1),
@@ -106,12 +151,22 @@ table {
             min-width: 200px;
             max-width: 200px;
             width: 200px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
           }
           &:nth-child(2),
           &:nth-child(7) {
             min-width: 130px;
             max-width: 130px;
             width: 130px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
           }
           &:nth-child(3),
           &:nth-child(4),
@@ -120,6 +175,16 @@ table {
             min-width: 90px;
             max-width: 90px;
             width: 90px;
+            @include minxins.tab-lg {
+              min-width: 50px;
+              max-width: 50px;
+              width: 50px;
+            }
+            // @include minxins.tab-lg {
+            //   min-width: auto;
+            //   max-width: max-content;
+            //   width: auto;
+            // }
           }
           &:nth-child(2),
           &:nth-child(3),
@@ -131,9 +196,19 @@ table {
           }
           &:last-child {
             text-align: center;
-            min-width: 148px !important;
-            max-width: 148px !important;
-            width: 148px !important;
+            min-width: 90px !important;
+            max-width: 90px !important;
+            width: 960px !important;
+            @include minxins.tab-lg {
+              min-width: auto !important;
+              max-width: max-content !important;
+              width: auto !important;
+            }
+            @include minxins.mobile-sm {
+              min-width: 60px !important;
+              max-width: 60px !important;
+              width: 60px !important;
+            }
             .tableActions {
               justify-content: center;
             }
@@ -152,16 +227,53 @@ table {
           width: 148px;
           word-wrap: break-word;
           white-space: nowrap;
+          @include minxins.tab-lg {
+            min-width: auto;
+            max-width: max-content;
+            width: auto;
+            white-space: normal;
+            word-break: break-all;
+          }
           &:nth-child(1) {
             min-width: 240px;
             max-width: 240px;
             width: 240px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
+          }
+          &:nth-child(2) {
+            min-width: 100px;
+            max-width: 100px;
+            width: 100px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
+          }
+          &:nth-child(4) {
+            min-width: 80px;
+            max-width: 80px;
+            width: 80px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
           }
           &:nth-child(3),
           &:nth-child(5) {
             min-width: 200px;
             max-width: 200px;
             width: 200px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
           }
           &:nth-child(2),
           &:nth-child(3),
@@ -172,9 +284,19 @@ table {
 
           &:last-child {
             text-align: center;
-            min-width: 148px !important;
-            max-width: 148px !important;
-            width: 148px !important;
+            min-width: 60px !important;
+            max-width: 60px !important;
+            width: 60px !important;
+            @include minxins.tab-lg {
+              min-width: auto !important;
+              max-width: max-content !important;
+              width: auto !important;
+            }
+            @include minxins.mobile-sm {
+              min-width: 50px !important;
+              max-width: 50px !important;
+              width: 50px !important;
+            }
           }
         }
       }
@@ -189,16 +311,54 @@ table {
           padding: 8px 12px;
           word-wrap: break-word;
           white-space: nowrap;
+          @include minxins.tab-lg {
+            min-width: auto;
+            max-width: max-content;
+            width: auto;
+            word-break: break-all;
+            white-space: normal;
+            padding: 2px 4px;
+          }
           &:nth-child(1) {
             min-width: 240px;
             max-width: 240px;
             width: 240px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
+          }
+          &:nth-child(2) {
+            min-width: 100px;
+            max-width: 100px;
+            width: 100px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
+          }
+          &:nth-child(4) {
+            min-width: 80px;
+            max-width: 80px;
+            width: 80px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
           }
           &:nth-child(3),
           &:nth-child(5) {
             min-width: 200px;
             max-width: 200px;
             width: 200px;
+            @include minxins.tab-lg {
+              min-width: auto;
+              max-width: max-content;
+              width: auto;
+            }
           }
           &:nth-child(2),
           &:nth-child(3),
@@ -211,6 +371,16 @@ table {
             min-width: 148px !important;
             max-width: 148px !important;
             width: 148px !important;
+            @include minxins.tab-lg {
+              min-width: auto !important;
+              max-width: max-content !important;
+              width: auto !important;
+            }
+            @include minxins.mobile-sm {
+              min-width: 50px !important;
+              max-width: 50px !important;
+              width: 50px !important;
+            }
             .tableActions {
               justify-content: center;
             }
@@ -227,9 +397,9 @@ table {
   border-collapse: collapse;
   width: 100%;
   min-width: 700px;
-  @include minxins.mobile-sm {
-    min-width: auto;
-  }
+  // @include minxins.mobile-sm {
+  //   min-width: auto;
+  // }
 }
 .sticky-row {
   position: sticky;
@@ -247,6 +417,9 @@ td {
   tr {
     th {
       padding: 12px 8px;
+      @include minxins.tab-lg {
+        padding: 8px 2px;
+      }
       background: #f3f4f6;
     }
   }
@@ -292,6 +465,9 @@ td {
       & > {
         th {
           padding: 12px 12px 15px 12px;
+          @include minxins.tab-lg {
+            padding: 8px 1px 8px 1px;
+          }
         }
       }
     }
@@ -323,10 +499,24 @@ td {
 }
 thead th {
   @include minxins.font("Poppins", 500, 12px, var(--gray_600), 1.4);
+  @include minxins.tab-lg {
+    @include minxins.font("Poppins", 400, 10px, var(--gray_900), 1.4);
+  }
+  .MuiButtonBase-root {
+    @include minxins.tab-lg {
+      padding: 0;
+      img {
+        width: 18px;
+      }
+    }
+  }
 }
 .accord_row {
   thead th {
     @include minxins.font("Poppins", 400, 12px, var(--gray_600), 1.4);
+    @include minxins.tab-lg {
+      @include minxins.font("Poppins", 400, 10px, var(--gray_900), 1.4);
+    }
   }
   .MuiAccordionSummary-content {
     border-bottom: 1px solid var(--border);
@@ -340,11 +530,7 @@ thead tr:nth-child(2) th {
 }
 
 .record-heading-cell p {
-  font-family: "Poppins";
-  font-weight: 600 !important;
-  font-size: 16px !important;
-  color: var(--primary_blue_500);
-  line-height: 1.458;
+  @include minxins.font("Poppins", 600, 16px, var(--primary_blue_500), 1.458);
   width: 100%;
   max-width: 100%;
   height: 24px;
@@ -353,12 +539,23 @@ thead tr:nth-child(2) th {
   text-overflow: ellipsis;
   flex: 1;
   text-align: left !important;
+  @include minxins.tab-lg {
+    @include minxins.font("Poppins", 500, 14px, var(--primary_blue_500), 1.458);
+  }
+  @include minxins.mobile-sm {
+    @include minxins.font("Poppins", 500, 12px, var(--primary_blue_500), 1.458);
+  }
 }
 // .new_detail_section {
 //   overflow-y: auto;
 //   overflow-x: auto;
 //   max-height: calc(100vh - 350px);
 // }
+.new_detail_section {
+  table {
+    table-layout: fixed;
+  }
+}
 .setDate {
   height: 100%;
   display: flex;
@@ -366,6 +563,9 @@ thead tr:nth-child(2) th {
   justify-content: flex-end;
   h2 {
     @include minxins.font("Poppins", 600, 16px, var(--gray_700), 1.4);
+    @include minxins.tab-lg {
+      @include minxins.font("Poppins", 500, 14px, var(--gray_700), 1.4);
+    }
   }
   @include minxins.mobile-sm {
     margin-bottom: 15px;
@@ -376,6 +576,9 @@ thead tr:nth-child(2) th {
   display: flex;
   align-items: center;
   justify-content: center;
+  @include minxins.tab-lg {
+    gap: 10px;
+  }
 }
 .tabsContainer {
   flex-direction: row;
@@ -404,6 +607,13 @@ thead tr:nth-child(2) th {
 .order_name {
   @include minxins.mobile-sm {
     margin-bottom: 0;
+  }
+}
+.order_name {
+  .order_name_inner {
+    @include minxins.tab-lg {
+      min-width: 100%;
+    }
   }
 }
 .order_name_inner {
@@ -493,6 +703,9 @@ thead tr:nth-child(2) th {
     position: relative;
     .tabs {
       margin-top: 10px;
+    }
+    @include minxins.mobile-sm {
+      max-height: calc(100vh - 170px);
     }
   }
 }
@@ -624,7 +837,7 @@ th {
     var(--gray_500),
     1.458
   );
-  @include minxins.mobile-sm {
+  @include minxins.tab-lg {
     @include minxins.font(
       "Poppins",
       400 !important,
@@ -641,7 +854,7 @@ th {
       var(--black),
       1.458
     );
-    @include minxins.mobile-sm {
+    @include minxins.tab-lg {
       @include minxins.font(
         "Poppins",
         400 !important,
@@ -654,13 +867,13 @@ th {
 }
 .labelText {
   @include minxins.font("Poppins", 400, 16px, var(--black), 1.458);
-  @include minxins.mobile-sm {
-    @include minxins.font("Poppins", 400, 14px, var(--black), 1.458);
+  @include minxins.tab-lg {
+    @include minxins.font("Poppins", 400, 12px, var(--black), 1.458);
   }
 }
 .mobileContainer {
   display: none;
-  @include minxins.tab-xs {
+  @include minxins.tab-lg {
     padding-top: 100px;
     display: block;
     position: sticky;
@@ -675,7 +888,7 @@ th {
 }
 .pageHeadingMobile {
   display: none;
-  @include minxins.tab-xs {
+  @include minxins.tab-lg {
     display: block;
     position: fixed;
     top: 86px;
@@ -685,9 +898,108 @@ th {
     background-color: var(--white);
     border-bottom: 1px solid var(--border);
   }
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 20px;
+  //   background-color: red;
+  // }
 }
 .desktopView {
-  @include minxins.tab-xs {
+  @include minxins.tab-lg {
     display: none;
+  }
+}
+button {
+  &.MuiButtonBase-root {
+    &.MuiButton-root {
+      &.showIconOnMobileOnly {
+        min-height: 40px;
+        .MuiButton-icon {
+          display: none;
+          @include minxins.tab-lg {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
+.header {
+  .selectBranchWeb {
+    @include minxins.tab-lg {
+      min-width: 300px;
+      max-width: 300px;
+      margin: 0 auto 0 60px;
+    }
+  }
+}
+
+.dashboardWrapper {
+  @include minxins.tab-lg {
+    .pageContainer {
+      padding: 15px 10px 0 10px;
+    }
+  }
+}
+.status {
+  @include minxins.tab-lg {
+    padding: 2px 2px 2px 2px;
+    min-width: auto;
+    &.completed {
+      @include minxins.tab-lg {
+        @include minxins.font("Poppins", 400, 10px, var(--success_500), 1.4);
+      }
+    }
+
+    &.pending {
+      @include minxins.tab-lg {
+        @include minxins.font("Poppins", 400, 10px, var(--warning_500), 1.4);
+      }
+    }
+
+    &.cancelled {
+      @include minxins.tab-lg {
+        @include minxins.font("Poppins", 400, 10px, var(--error_500), 1.4);
+      }
+    }
+    &.blocked {
+      @include minxins.tab-lg {
+        @include minxins.font("Poppins", 400, 10px, var(--error_500), 1.4);
+      }
+    }
+    &.active {
+      @include minxins.tab-lg {
+        @include minxins.font(
+          "Poppins",
+          400,
+          10px,
+          var(--primary_blue_500),
+          1.4
+        );
+      }
+    }
+  }
+}
+.image_n_text {
+  @include minxins.tab-lg {
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: auto;
+  }
+  .listImage {
+    @include minxins.tab-lg {
+      width: 30px;
+      height: 30px;
+      border-radius: 2px;
+    }
+  }
+  p {
+    @include minxins.tab-lg {
+      margin: 0 !important;
+    }
   }
 }

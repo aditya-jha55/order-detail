@@ -69,7 +69,7 @@ export default function ServiceTab(props: Props) {
         {!pageScroll && isAnyOpen &&
         <thead className="common_accord_row">
             <tr>
-              <th>
+              <th colSpan={10}>
                 <table className="order_set_table">
                   <thead>
                     <tr>
