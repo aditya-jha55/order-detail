@@ -22,7 +22,7 @@ const ShiftDetailPricingDialog = ({
       aria-labelledby="order-details-dialog"
       aria-describedby="order-details"
     >
-      <div className="dialogWrapper warning orderAddress w__600">
+      <div className="dialogWrapper warning orderAddress w__430">
         <div className="dialogHeader flex sps_between">
           <h4 className="small">
            Shift Detail & Pricing
@@ -41,7 +41,7 @@ const ShiftDetailPricingDialog = ({
             <div className="icon">
               <figure>
                 <img
-                  className="listImage"
+                  className="listImage round"
                   src={Images.USER_IMAGE}
                   alt={""}
                 />
@@ -51,7 +51,7 @@ const ShiftDetailPricingDialog = ({
               <h3>Joshua Young</h3>
               <ul>
                 <li>
-                    <p className="light">Shift Type</p>
+                    <p className="light">Shift Model Type</p>
                     <p className="dark">12 Hr - Day</p>
                 </li>
               </ul>
@@ -70,7 +70,7 @@ const ShiftDetailPricingDialog = ({
                   <p>
                     Regular Time
                   </p>
-                  <p className="small">Reg. Rate (12 hrs @ $10/Hr)</p>
+                  <p className="small">(12 hrs @ $10/Hr)</p>
                 </Grid>
                 <Grid size={{xs: 6}}>
                   <p className="dialog-data">12 hrs</p>
@@ -80,7 +80,7 @@ const ShiftDetailPricingDialog = ({
                <Grid container spacing={2} >
                 <Grid size={{xs: 6}}>
                   <p>OT</p>
-                  <p className="small">OT Rate (2 hrs @ 1.5x base rate)</p>
+                  <p className="small">(2 hrs @ 1.5x base rate)</p>
                 </Grid>
                 <Grid size={{xs: 6}}>
                   <p className="dialog-data">2 Hr</p>
@@ -90,7 +90,7 @@ const ShiftDetailPricingDialog = ({
               <Grid container spacing={2} >
                 <Grid size={{xs: 6}}>
                   <p>DT</p>
-                  <p className="small">DT Rate (2 hrs @ 1.5x base rate)</p>
+                  <p className="small">(2 hrs @ 1.5x base rate)</p>
                 </Grid>
                 <Grid size={{xs: 6}}>
                   <p className="dialog-data">4 Hr</p>
@@ -108,13 +108,18 @@ const ShiftDetailPricingDialog = ({
                 </Grid>
               </Grid>
                 <Grid container spacing={2} >
-                <Grid size={{xs: 6}}>
+                <Grid size={{xs: 8}}>
                   <p className='black'>Total Time </p>
                   <p className="small">Total Cost (Reg Rate + OT Rate + DT Rate)</p>
                 </Grid>
-                <Grid size={{xs: 6}}>
+                <Grid size={{xs: 4}}>
                   <p className="dialog-data"> 16.5 hrs </p>
                   <p className="dialog-data small">$285</p>
+                </Grid>
+              </Grid>
+               <Grid container spacing={2} >
+                <Grid size={{xs: 12}}>
+                  <p className="note">*Holiday rates applied</p>
                 </Grid>
               </Grid>
            </div>  
@@ -152,11 +157,7 @@ const ShiftDetailPricingDialog = ({
                   <p className="dialog-data"> $245</p>
                 </Grid>
               </Grid>
-                <Grid container spacing={2} >
-                <Grid size={{xs: 12}}>
-                  <p className="note">*Holiday rates applied</p>
-                </Grid>
-              </Grid>
+               
                </div>
         </div>
       </div>

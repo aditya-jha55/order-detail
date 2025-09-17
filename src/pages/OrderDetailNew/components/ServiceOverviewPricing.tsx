@@ -17,7 +17,7 @@ const ServiceOverviewPricingDialog = ({
       aria-labelledby="order-details-dialog"
       aria-describedby="order-details"
     >
-      <div className="dialogWrapper warning orderAddress w__600">
+      <div className="dialogWrapper warning orderAddress w__430">
         <div className="dialogHeader flex sps_between">
           <h4 className="small">Service Overview & Pricing</h4>
           <IconButton onClick={handleClose}>

@@ -6798,6 +6798,12 @@ button {
     min-width: 100% !important;
   }
 }
+.w__430 {
+  min-width: 430px !important;
+  @include minxins.mobile-sm {
+    min-width: 100% !important;
+  }
+}
 .w__768 {
   min-width: 768px !important;
   @include minxins.mobile-sm {

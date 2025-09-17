@@ -632,13 +632,29 @@ thead tr:nth-child(2) th {
             @include minxins.font("Poppins", 500, 12px, var(--gray_900), 1.4);
           }
         }
+        &:first-child {
+          max-width: 70px;
+          p {
+            text-align: left;
+          }
+        }
+        &:nth-child(2) {
+          p {
+            text-align: center;
+          }
+        }
+        &:not(:first-child):last-child {
+          p {
+            text-align: right;
+          }
+        }
       }
     }
   }
 }
 .schedule {
   h3 {
-    @include minxins.font("Poppins", 500, 14px, var(--black), 1.4);
+    @include minxins.font("Poppins", 500, 13px, var(--black), 1.4);
   }
   p {
     @include minxins.font("Poppins", 500, 14px, var(--gray_500), 1.4);
@@ -677,7 +693,7 @@ thead tr:nth-child(2) th {
       @include minxins.font(
         "Poppins",
         400 !important,
-        14px !important,
+        12px !important,
         var(--gray_500) !important,
         1.4
       );
