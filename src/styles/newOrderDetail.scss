@@ -611,6 +611,7 @@ thead tr:nth-child(2) th {
 }
 .order_name {
   .order_name_inner {
+    align-items: flex-start;
     @include minxins.tab-lg {
       min-width: 100%;
     }
