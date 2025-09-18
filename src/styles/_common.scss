@@ -180,6 +180,9 @@ body {
 }
 
 .main {
+  @include minxins.tab-lg {
+    height: 100svh;
+  }
   p {
     color: var(--primary);
   }
@@ -1234,7 +1237,7 @@ input[type="number"] {
   background: var(--white);
   // padding: 0 0 50px 0;
   @include minxins.mobile-sm {
-    height: calc(100vh - 127px);
+    height: calc(100svh - 127px);
   }
 }
 

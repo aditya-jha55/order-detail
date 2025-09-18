@@ -16,12 +16,11 @@ import Images from "../../Utils/images";
 import { useDTranslation, useHideOnScroll } from "../../customHooks";
 import { ROUTES } from "../../helpers";
 import SectionContainerCollapsable from "../../Components/SectionContainerCollapsable";
-import {
+import React, {
   useEffect,
   useRef,
   useState,
   type RefObject,
-  type SyntheticEvent,
 } from "react";
 import OrderNameCard from "./components/OrderNameCard";
 import { useScrollPercentage } from "../../customHooks/useScrolledPercentage";
@@ -57,12 +56,12 @@ export default function OrderDetailsNewUi() {
     throw new Error("Function not implemented.");
   }
 
-  function handleTabChange(
-    _activeTab: number,
-    _event: SyntheticEvent<Element, Event>
-  ): void {
-    throw new Error("Function not implemented.");
-  }
+const [value, setValue] = React.useState(0);
+console.log("value", value)
+  const handleTabChange = (newValue: number) => {
+    setValue(newValue);
+  };
+
   // ==========for syicky location================
 
   const sectionScrollerRef = useRef<HTMLDivElement>(null);
@@ -240,7 +239,7 @@ export default function OrderDetailsNewUi() {
 
                       <p className="labelText">-</p>
                     </Grid>
-                    <Grid size={{ xs: 12, md: 4 }}>
+                    <Grid size={{ xs: 12, md: 8 }}>
                       <FormLabel className="labelHeading">
                         {t("desc")}
                       </FormLabel>
@@ -248,6 +247,14 @@ export default function OrderDetailsNewUi() {
                         Lorem Ipsum is simply dummy text of the printing
                         industry...
                         <a href="">View More</a>
+                      </p>
+                    </Grid>
+                    <Grid size={{ xs: 12 }}>
+                      <FormLabel className="labelHeading">
+                        Status Overview
+                      </FormLabel>
+                      <p className="labelText">
+                        Pending Authorization
                       </p>
                     </Grid>
                   </Grid>
@@ -291,13 +298,13 @@ export default function OrderDetailsNewUi() {
                 })}
               >
                 <TabsList
-                  activeTab={activeTab}
+                  activeTab={value}
                   tabLabels={[
                     `${tC("services")}`,
                     `${tC("rentals")}`,
                     `${tC("products")}`,
                   ]}
-                  onTabChange={handleTabChange}
+                  onTabChange={(i)=>handleTabChange(i)}
                   category={tabCategory}
                 />
                 <>
@@ -337,7 +344,7 @@ export default function OrderDetailsNewUi() {
                   buttonChildren={
                     <div className="orderDetailTop">
                       <div className="topRow">
-                        {/* <p>{scrollPercent.toFixed(0)}%</p> */}
+                        <p>{scrollPercent.toFixed(0)}%</p>
                         <div className="filter_ac"></div>
                         <CustomButton
                           size="small"
@@ -496,7 +503,7 @@ export default function OrderDetailsNewUi() {
 
                             <p className="labelText">-</p>
                           </Grid>
-                          <Grid size={{ xs: 12, md: 4 }}>
+                          <Grid size={{ xs: 12, md: 8 }}>
                             <FormLabel className="labelHeading">
                               {t("desc")}
                             </FormLabel>
@@ -506,6 +513,15 @@ export default function OrderDetailsNewUi() {
                               <a href="">View More</a>
                             </p>
                           </Grid>
+                            <Grid size={{ xs: 12 }}>
+                      <FormLabel className="labelHeading">
+                        Status Overview
+                      </FormLabel>
+                      <p className="labelText">
+                        <div className="grey_bedge">Pending Authorization</div>
+                        
+                      </p>
+                    </Grid>
                         </Grid>
                       </div>
                     </>
@@ -514,26 +530,7 @@ export default function OrderDetailsNewUi() {
               </th>
             </tr>
           </thead>
-          <thead>
-            <tr>
-              <th className="tr_text_left desktopView" colSpan={9}>
-                <Grid
-                  container
-                  spacing={{ xs: 1, sm: 1, md: 2 }}
-                  // className={clsx({ hideSection: !isPageHeadingVisible })}
-                >
-                  <Grid size={{ xs: 12, md: 6 }}>
-                    <OrderNameCard setId="" setName="INT. DANS'S HOUSE" />
-                  </Grid>
-                  <Grid size={{ xs: 12, md: 6 }}>
-                    <div className="setDate">
-                      <h2>Aug 10, 2023 – Aug 16, 2023</h2>
-                    </div>
-                  </Grid>
-                </Grid>
-              </th>
-            </tr>
-          </thead>
+          
           <thead>
             <tr>
               <th colSpan={9} className="desktopView">
@@ -562,13 +559,13 @@ export default function OrderDetailsNewUi() {
                       })}
                     >
                       <TabsList
-                        activeTab={activeTab}
+                        activeTab={value}
                         tabLabels={[
                           `${tC("services")}`,
                           `${tC("rentals")}`,
                           `${tC("products")}`,
                         ]}
-                        onTabChange={handleTabChange}
+                        onTabChange={(i)=>handleTabChange(i)}
                         category={tabCategory}
                       />
                       <>
@@ -609,9 +606,9 @@ export default function OrderDetailsNewUi() {
                   >
                     <div className="tabContainer">
                       <TabElements
-                        activeTab={activeTab}
+                        activeTab={value}
                         elements={[
-                          <ServiceTab pageScroll={isPageHeadingVisible} />,
+                          <ServiceTab pageScroll={isPageHeadingVisible} scrolledPercentage={scrollPercent} />,
                           <>2</>,
                           <>3</>,
                         ]}

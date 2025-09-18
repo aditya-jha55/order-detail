@@ -3,6 +3,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Grid,
   IconButton,
 } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -12,12 +13,14 @@ import { CustomSelect } from '../../../Components';
 import ServiceOverviewPricingDialog from './ServiceOverviewPricing';
 import React from 'react';
 import ShiftDetailPricingDialog from './ShiftDetailPricingDialog';
+import OrderNameCard from './OrderNameCard';
 
 interface Props{
-  pageScroll: boolean
+  pageScroll: boolean;
+  scrolledPercentage: number
 }
 export default function ServiceTab(props: Props) {
-  const {pageScroll} = props
+  const {pageScroll, scrolledPercentage} = props
   const [serviceOpen, SerServiceOpen] = React.useState(false);
   const [detailOpen, SetDetailOpen] = React.useState(false);
   const [expanded, setExpanded] = React.useState<string | false>("panel1");
@@ -34,6 +37,50 @@ export default function ServiceTab(props: Props) {
       className={clsx('table-container')}
     >
       <table>
+        <thead className='setNameRow fixedSetNameRow'>
+            <tr>
+              <th className="tr_text_left desktopView" colSpan={10}>
+                <Grid
+                  container
+                  spacing={{ xs: 1, sm: 1, md: 2 }}
+                  className={clsx({ hideSetCard: scrolledPercentage > 37 })}
+                >
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <OrderNameCard setId="" setName="INT. DANS'S HOUSE" />
+                  </Grid>
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <div className="setDate">
+                      <h2>Aug 10, 2023 – Aug 16, 2023</h2>
+                    </div>
+                  </Grid>
+                </Grid>
+               
+                 {/* <Grid
+                container
+                  spacing={{ xs: 1, sm: 1, md: 2 }}
+                  className={clsx('fixedSetInfo', {slideDown: scrolledPercentage > 37})}
+                >
+                  <Grid size={{ xs: 12 }}>
+                      <Box sx={{py: 2.8}}>
+                        <h3>INT. DANS'S HOUSE {scrolledPercentage.toFixed()}</h3>
+                        <p>Aug 10, 2023 – Aug 16, 2023</p>
+                        </Box> 
+                  </Grid>
+                </Grid> */}
+            
+                
+              </th>
+            </tr>
+           
+          </thead>
+          {/* <thead className={clsx('fixedSetNameRow', {setNameRowShow: !pageScroll})}>
+            <tr>
+              <th colSpan={10}>
+                <h3>INT. DANS'S HOUSE</h3>
+                <p>Aug 10, 2023 – Aug 16, 2023</p>
+              </th>
+            </tr>
+          </thead> */}
         <thead className="loc_row">
           <tr>
             <th colSpan={10}>
