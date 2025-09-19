@@ -22,7 +22,6 @@ import React, {
   useState,
   type RefObject,
 } from "react";
-import OrderNameCard from "./components/OrderNameCard";
 import { useScrollPercentage } from "../../customHooks/useScrolledPercentage";
 
 const tabCategory = "order-details";
@@ -57,7 +56,7 @@ export default function OrderDetailsNewUi() {
   }
 
 const [value, setValue] = React.useState(0);
-console.log("value", value)
+// console.log("value", value)
   const handleTabChange = (newValue: number) => {
     setValue(newValue);
   };
@@ -74,14 +73,14 @@ console.log("value", value)
   );
 
   useEffect(() => {
-    console.log(isPageHeadingVisible);
+    // console.log(isPageHeadingVisible);
   }, [isPageHeadingVisible]);
 
-  console.log(isPageHeadingVisible);
+  // console.log(isPageHeadingVisible);
   const scrollPercent = useScrollPercentage(sectionScrollerRef);
   // ==========for syicky location================
   const ww = window.innerWidth;
-  console.log(ww);
+  // console.log(ww);
   return (
     <>
       <div
@@ -263,7 +262,7 @@ console.log("value", value)
             }
           />
 
-          <Grid
+          {/* <Grid
             container
             spacing={{ xs: 1, sm: 1, md: 2 }}
             // className={clsx({ hideSection: !isPageHeadingVisible })}
@@ -276,7 +275,7 @@ console.log("value", value)
                 <h2>Aug 10, 2023 – Aug 16, 2023</h2>
               </div>
             </Grid>
-          </Grid>
+          </Grid> */}
 
           <Grid
             size={{ xs: 12 }}
@@ -608,7 +607,11 @@ console.log("value", value)
                       <TabElements
                         activeTab={value}
                         elements={[
-                          <ServiceTab pageScroll={isPageHeadingVisible} scrolledPercentage={scrollPercent} />,
+                          <ServiceTab 
+                          pageScroll={isPageHeadingVisible} 
+                          scrolledPercentage={scrollPercent} 
+                          containerRef={sectionScrollerRef} 
+                          />,
                           <>2</>,
                           <>3</>,
                         ]}

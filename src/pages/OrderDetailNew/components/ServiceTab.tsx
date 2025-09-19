@@ -3,7 +3,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Grid,
   IconButton,
 } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -11,16 +10,18 @@ import clsx from 'clsx';
 import Images from '../../../Utils/images';
 import { CustomSelect } from '../../../Components';
 import ServiceOverviewPricingDialog from './ServiceOverviewPricing';
-import React from 'react';
+import React, { type RefObject } from 'react';
 import ShiftDetailPricingDialog from './ShiftDetailPricingDialog';
 import OrderNameCard from './OrderNameCard';
+import useStickyHeaderIndexes from '../../../customHooks/useDetectStickyHead';
 
 interface Props{
   pageScroll: boolean;
   scrolledPercentage: number
+ containerRef: RefObject<HTMLDivElement | null>;
 }
 export default function ServiceTab(props: Props) {
-  const {pageScroll, scrolledPercentage} = props
+  const {pageScroll, scrolledPercentage, containerRef} = props
   const [serviceOpen, SerServiceOpen] = React.useState(false);
   const [detailOpen, SetDetailOpen] = React.useState(false);
   const [expanded, setExpanded] = React.useState<string | false>("panel1");
@@ -30,57 +31,36 @@ export default function ServiceTab(props: Props) {
     // console.log(`${panel} is ${expanded === panel ? "collapsed" : "expanded"}`);
   };
   const isAnyOpen = expanded !== false;
-  console.log(isAnyOpen)
+  // console.log(isAnyOpen);
+
+  // ==================detect sticky head==================
+  const stuckIndexes = useStickyHeaderIndexes(containerRef, "thead.fixedSetNameRow", 90);
+  console.log(stuckIndexes)
+// ==================detect sticky head================
   return (
     <>
     <div
       className={clsx('table-container')}
     >
       <table>
-        <thead className='setNameRow fixedSetNameRow'>
+        <thead className='fixedSetNameRow' data-id="sticky-1">
             <tr>
-              <th className="tr_text_left desktopView" colSpan={10}>
-                <Grid
-                  container
-                  spacing={{ xs: 1, sm: 1, md: 2 }}
-                  className={clsx({ hideSetCard: scrolledPercentage > 37 })}
-                >
-                  <Grid size={{ xs: 12, md: 6 }}>
-                    <OrderNameCard setId="" setName="INT. DANS'S HOUSE" />
-                  </Grid>
-                  <Grid size={{ xs: 12, md: 6 }}>
-                    <div className="setDate">
+              <th className="tr_text_left" colSpan={10}>
+                <div className="setNameRow">
+                  <div className={clsx('setNameCartSec', {hide: scrolledPercentage > 35})}>
+                      <OrderNameCard setId="" setName="INT. DANS'S HOUSE" />
+                      <div className="setDate">
                       <h2>Aug 10, 2023 – Aug 16, 2023</h2>
                     </div>
-                  </Grid>
-                </Grid>
-               
-                 {/* <Grid
-                container
-                  spacing={{ xs: 1, sm: 1, md: 2 }}
-                  className={clsx('fixedSetInfo', {slideDown: scrolledPercentage > 37})}
-                >
-                  <Grid size={{ xs: 12 }}>
-                      <Box sx={{py: 2.8}}>
-                        <h3>INT. DANS'S HOUSE {scrolledPercentage.toFixed()}</h3>
+                  </div>
+                  <div className={clsx('setNameScrollSec', {show: scrolledPercentage > 35})}>
+                      <h3>INT. DANS'S HOUSE</h3>
                         <p>Aug 10, 2023 – Aug 16, 2023</p>
-                        </Box> 
-                  </Grid>
-                </Grid> */}
-            
-                
+                  </div>
+                </div>
               </th>
             </tr>
-           
           </thead>
-          {/* <thead className={clsx('fixedSetNameRow', {setNameRowShow: !pageScroll})}>
-            <tr>
-              <th colSpan={10}>
-                <h3>INT. DANS'S HOUSE</h3>
-                <p>Aug 10, 2023 – Aug 16, 2023</p>
-              </th>
-            </tr>
-          </thead> */}
         <thead className="loc_row">
           <tr>
             <th colSpan={10}>
@@ -484,6 +464,56 @@ export default function ServiceTab(props: Props) {
                   </table>
                 </AccordionDetails>
               </Accordion>
+            </th>
+          </tr>
+        </thead>
+        <thead className='fixedSetNameRow' data-id="sticky-2">
+            <tr>
+              <th className="tr_text_left desktopView" colSpan={10}>
+                <div className="setNameRow">
+                  <div className={clsx('setNameCartSec', {hide: scrolledPercentage > 35})}>
+                      <OrderNameCard setId="" setName="INT. DANS'S HOUSE" />
+                      <div className="setDate">
+                      <h2>Aug 10, 2023 – Aug 16, 2023</h2>
+                    </div>
+                  </div>
+                  <div className={clsx('setNameScrollSec', {show: scrolledPercentage > 35})}>
+                      <h3>INT. DANS'S HOUSE</h3>
+                        <p>Aug 10, 2023 – Aug 16, 2023</p>
+                  </div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        <thead className="loc_row">
+          <tr>
+            <th colSpan={10}>
+              <div className="location_name">
+                <div className="icon">
+                  <figure>
+                    <img src={Images.LOCATION_BLUE_IC} alt="" />
+                  </figure>
+                </div>
+                <div className="info">
+                  <p className="text_left top_rel auto_ellipse cursor_pointer">
+                    <div
+                      className="ellipse_rental w_auto"
+                      aria-label="Noida Stadium, Noida Stadium, Noida, Uttar Pradesh 201307, India"
+                      data-mui-internal-clone-element="true"
+                    >
+                      Noida Stadium, Noida Stadium, Noida, Uttar Pradesh 201307,
+                      India
+                    </div>
+                    <div
+                      className="ellipse_rental w_location"
+                      aria-label="Primary Shooting Location"
+                      data-mui-internal-clone-element="true"
+                    >
+                      - Primary Shooting Location
+                    </div>
+                  </p>
+                </div>
+              </div>
             </th>
           </tr>
         </thead>

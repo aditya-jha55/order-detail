@@ -37,8 +37,6 @@
   }
   to {
     opacity: 0;
-    height: 0;
-    padding: 0;
   }
 }
 @keyframes fadeInFull {
@@ -54,7 +52,7 @@
 }
 .table-container {
   max-width: 100%; /* scrollable horizontally */
-  padding-bottom: 100px;
+  // padding-bottom: 100px;
   // overflow-x: auto;
   position: relative;
   .MuiAccordionSummary-root {
@@ -458,8 +456,14 @@ td {
           z-index: 9;
           &.th_headingScroll {
             // top: 150px;
-            top: 226px;
-            // top: 298px;
+            // top: 226px;
+            top: 328px;
+            @include minxins.tab-lg {
+              top: 228px;
+            }
+            @include minxins.mobile-sm {
+              top: 226px;
+            }
           }
         }
       }
@@ -471,8 +475,8 @@ td {
     height: auto;
     left: 0;
     // top: 65px;
-    top: 146px;
-    // top: 216px;
+    // top: 146px;
+    top: 246px;
     box-shadow: 0 0 20px rgb(191 191 191 / 49%);
     z-index: 10;
     animation: slideDown 0.5s ease-out;
@@ -491,11 +495,22 @@ td {
         }
       }
     }
+    &:after {
+      content: "";
+      height: 10px;
+      width: 100%;
+      background-color: #ffffff;
+      filter: blur(4px);
+      position: absolute;
+      left: 0;
+      z-index: 14;
+      bottom: -6px;
+    }
   }
   &.loc_row {
     position: sticky;
-    top: 80px;
-    // top: 150px;
+    // top: 80px;
+    top: 178px;
     z-index: 10;
     @include minxins.mobile-sm {
       top: 90px;
@@ -634,6 +649,7 @@ thead tr:nth-child(2) th {
 .order_name {
   .order_name_inner {
     margin: 0;
+    padding: 12px;
     align-items: flex-start;
     @include minxins.tab-lg {
       min-width: 100%;
@@ -1064,10 +1080,9 @@ button {
   }
 }
 .fixedSetNameRow {
-  // position: sticky;
-  // top: 90px !important;
-  // z-index: 10;
-
+  position: sticky;
+  top: 90px !important;
+  z-index: 10;
   tr {
     th {
       background-color: var(--white);
@@ -1082,27 +1097,72 @@ button {
   p {
     @include minxins.font("Poppins", 600, 16px, var(--gray_700), 1.4);
   }
-}
-.fixedSetInfo {
-  display: none !important;
-  h3 {
-    @include minxins.font("Poppins", 600, 16px, var(--black), 1.4);
+  .setNameRow {
+    position: relative;
+    overflow: hidden;
+    height: 80px;
+    .setNameCartSec {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: 0.5s ease-in-out all;
+      // &.hide {
+      //   opacity: 0;
+      //   transform: translateY(-100%);
+      //   transition: 0.5s ease-in-out all;
+      // }
+      .setDate {
+        margin-left: auto;
+      }
+    }
+    .setNameScrollSec {
+      background-color: var(--white);
+      // box-shadow: 0px 2px 20px 0px rgba(4, 6, 15, 0.03);
+      // border: 1px solid var(--gray_200);
+      padding: 17px 15px;
+      border-radius: 12px;
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: 0.5s ease-in-out all;
+      // &.show {
+      //   opacity: 1;
+      //   transform: translateY(0);
+      //   transition: 0.5s ease-in-out all;
+      // }
+    }
   }
-  p {
-    @include minxins.font("Poppins", 600, 16px, var(--gray_700), 1.4);
-  }
-  &.slideDown {
-    display: flex !important;
-    opacity: 0;
-    // animation: fadeInFull 0.5s ease-in forwards;
-    animation: fadeInFull 0.5s ease-in 0.3s forwards;
-    // animation-iteration-count: 1;
+  &.is-stuck {
+    .setNameRow {
+      .setNameCartSec {
+        &.hide {
+          opacity: 0;
+          transform: translateY(-100%);
+          transition: 0.5s ease-in-out all;
+        }
+      }
+      .setNameScrollSec {
+        &.show {
+          opacity: 1;
+          transform: translateY(0);
+          transition: 0.5s ease-in-out all;
+        }
+      }
+    }
   }
 }
 
-// .hideSetCard {
-//   animation: fadeOutFull 0.3s ease-in forwards;
-// }
 .grey_bedge {
   background-color: #f2f4f7;
   border-radius: 6px;
