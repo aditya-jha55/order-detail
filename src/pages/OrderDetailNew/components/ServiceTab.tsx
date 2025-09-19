@@ -39,7 +39,7 @@ export default function ServiceTab(props: Props) {
   const stuckIndexes = useStickyHeaderIndexes(containerRef, "thead.fixedSetNameRow", 
     // 60
 
-     ww < 600 ? 100 : 
+     ww < 600 ? 95 : 
      ww > 600 && ww <= 768 ? 58:
      ww > 768 && ww <= 1024 ? 58 : 90
   );
