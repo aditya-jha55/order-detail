@@ -79,7 +79,7 @@ const [value, setValue] = React.useState(0);
   // console.log(isPageHeadingVisible);
   const scrollPercent = useScrollPercentage(sectionScrollerRef);
   // ==========for syicky location================
-  const ww = window.innerWidth;
+  // const ww = window.innerWidth;
   // console.log(ww);
   return (
     <>
