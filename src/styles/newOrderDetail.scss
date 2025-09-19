@@ -1131,12 +1131,15 @@ button {
     }
   }
   p {
-    @include minxins.font("Poppins", 600, 16px, var(--gray_700), 1.4);
+    @include minxins.font("Poppins", 600, 13px, var(--gray_700), 1.4);
+    margin-top: 4px;
     @include minxins.tab-lg {
-      @include minxins.font("Poppins", 600, 14px, var(--gray_700), 1.4);
+      @include minxins.font("Poppins", 600, 12px, var(--gray_700), 1.4);
+      margin-top: 2px;
     }
     @include minxins.mobile-sm {
       @include minxins.font("Poppins", 500, 12px, var(--gray_700), 1.4);
+      margin-top: 2px;
     }
   }
   .setNameRow {
