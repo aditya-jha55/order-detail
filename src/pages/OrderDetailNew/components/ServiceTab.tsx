@@ -34,7 +34,15 @@ export default function ServiceTab(props: Props) {
   // console.log(isAnyOpen);
 
   // ==================detect sticky head==================
-  const stuckIndexes = useStickyHeaderIndexes(containerRef, "thead.fixedSetNameRow", 90);
+  const ww = window.innerWidth;
+  console.log(ww)
+  const stuckIndexes = useStickyHeaderIndexes(containerRef, "thead.fixedSetNameRow", 
+    // 60
+
+     ww < 600 ? 100 : 
+     ww > 600 && ww <= 768 ? 58:
+     ww > 768 && ww <= 1024 ? 58 : 90
+  );
   console.log(stuckIndexes)
 // ==================detect sticky head================
   return (
@@ -48,13 +56,13 @@ export default function ServiceTab(props: Props) {
               <th className="tr_text_left" colSpan={10}>
                 <div className="setNameRow">
                   <div className={clsx('setNameCartSec', {hide: scrolledPercentage > 35})}>
-                      <OrderNameCard setId="" setName="INT. DANS'S HOUSE" />
+                      <OrderNameCard setId="" setName="1 INT. DANS'S HOUSE" />
                       <div className="setDate">
                       <h2>Aug 10, 2023 – Aug 16, 2023</h2>
                     </div>
                   </div>
                   <div className={clsx('setNameScrollSec', {show: scrolledPercentage > 35})}>
-                      <h3>INT. DANS'S HOUSE</h3>
+                      <h3>1 INT. DANS'S HOUSE</h3>
                         <p>Aug 10, 2023 – Aug 16, 2023</p>
                   </div>
                 </div>
@@ -469,16 +477,16 @@ export default function ServiceTab(props: Props) {
         </thead>
         <thead className='fixedSetNameRow' data-id="sticky-2">
             <tr>
-              <th className="tr_text_left desktopView" colSpan={10}>
+              <th className="tr_text_left" colSpan={10}>
                 <div className="setNameRow">
                   <div className={clsx('setNameCartSec', {hide: scrolledPercentage > 35})}>
-                      <OrderNameCard setId="" setName="INT. DANS'S HOUSE" />
+                      <OrderNameCard setId="" setName="2 INT. DANS'S HOUSE" />
                       <div className="setDate">
                       <h2>Aug 10, 2023 – Aug 16, 2023</h2>
                     </div>
                   </div>
                   <div className={clsx('setNameScrollSec', {show: scrolledPercentage > 35})}>
-                      <h3>INT. DANS'S HOUSE</h3>
+                      <h3>2 INT. DANS'S HOUSE</h3>
                         <p>Aug 10, 2023 – Aug 16, 2023</p>
                   </div>
                 </div>

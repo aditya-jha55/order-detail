@@ -482,8 +482,15 @@ td {
     animation: slideDown 0.5s ease-out;
     // transform: translateY(-80px);
     // opacity: 0;
+    @include minxins.tab-lg {
+      top: 190px;
+    }
+    @include minxins.tab-xs {
+      top: 184px;
+    }
     @include minxins.mobile-sm {
-      top: 155px;
+      // top: 155px;
+      top: 225px;
     }
     & > tr {
       & > {
@@ -512,8 +519,15 @@ td {
     // top: 80px;
     top: 158px;
     z-index: 10;
+    @include minxins.tab-lg {
+      top: 120px;
+    }
+    @include minxins.tab-xs {
+      top: 117px;
+    }
     @include minxins.mobile-sm {
-      top: 90px;
+      // top: 90px;
+      top: 152px;
     }
   }
 }
@@ -781,7 +795,8 @@ thead tr:nth-child(2) th {
       margin-top: 10px;
     }
     @include minxins.mobile-sm {
-      max-height: calc(100vh - 170px);
+      // max-height: calc(100vh - 170px);
+      max-height: calc(100vh - 130px);
     }
   }
 }
@@ -973,6 +988,15 @@ th {
     z-index: 9;
     background-color: var(--white);
     border-bottom: 1px solid var(--border);
+    @include minxins.tab-lg {
+      top: 80px;
+    }
+    @include minxins.tab-xs {
+      top: 57px;
+    }
+    @include minxins.mobile-sm {
+      top: 50px;
+    }
   }
   // &::after {
   //   content: "";
@@ -1083,6 +1107,12 @@ button {
   position: sticky;
   top: 89px !important;
   z-index: 10;
+  @include minxins.tab-lg {
+    top: 58px !important;
+  }
+  @include minxins.mobile-sm {
+    top: 100px !important;
+  }
   tr {
     th {
       background-color: var(--white);
@@ -1093,9 +1123,21 @@ button {
   }
   h3 {
     @include minxins.font("Poppins", 600, 16px, var(--black), 1.4);
+    @include minxins.tab-lg {
+      @include minxins.font("Poppins", 600, 14px, var(--black), 1.4);
+    }
+    @include minxins.mobile-sm {
+      @include minxins.font("Poppins", 500, 13px, var(--black), 1.4);
+    }
   }
   p {
     @include minxins.font("Poppins", 600, 16px, var(--gray_700), 1.4);
+    @include minxins.tab-lg {
+      @include minxins.font("Poppins", 600, 14px, var(--gray_700), 1.4);
+    }
+    @include minxins.mobile-sm {
+      @include minxins.font("Poppins", 500, 12px, var(--gray_700), 1.4);
+    }
   }
   .setNameRow {
     position: relative;

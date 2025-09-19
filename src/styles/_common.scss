@@ -1066,9 +1066,10 @@ input[type="number"] {
   padding: 14px 56px 14px 32px;
   position: relative;
   z-index: 12;
-  @include minxins.tab-lg {
-    padding: 14px 0 14px 14px;
+  @include minxins.tab-xs {
+    padding: 7px 0 7px 14px;
     gap: 10px;
+    min-height: auto;
   }
 
   .logo {
@@ -1237,7 +1238,8 @@ input[type="number"] {
   background: var(--white);
   // padding: 0 0 50px 0;
   @include minxins.mobile-sm {
-    height: calc(100svh - 127px);
+    // height: calc(100svh - 127px);
+    height: calc(100svh - 110px);
   }
 }
 
@@ -2642,6 +2644,7 @@ input[type="number"] {
     .headings {
       h3 {
         @include minxins.font("Poppins", 600, 24px, var(--gray_700), 1.66);
+        text-align: left;
 
         @include minxins.mobile-sm {
           @include minxins.font("Poppins", 500, 18px, var(--gray_700), 1.5);
@@ -2654,6 +2657,9 @@ input[type="number"] {
       align-items: center;
       gap: 10px;
       margin: 10px 0;
+      @include minxins.tab-lg {
+        margin: 1px 0;
+      }
       @include minxins.mobile-sm {
         margin: 2px 0;
       }
