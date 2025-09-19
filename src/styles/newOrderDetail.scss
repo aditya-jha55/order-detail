@@ -457,7 +457,7 @@ td {
           &.th_headingScroll {
             // top: 150px;
             // top: 226px;
-            top: 328px;
+            top: 300px;
             @include minxins.tab-lg {
               top: 228px;
             }
@@ -476,7 +476,7 @@ td {
     left: 0;
     // top: 65px;
     // top: 146px;
-    top: 246px;
+    top: 220px;
     box-shadow: 0 0 20px rgb(191 191 191 / 49%);
     z-index: 10;
     animation: slideDown 0.5s ease-out;
@@ -510,7 +510,7 @@ td {
   &.loc_row {
     position: sticky;
     // top: 80px;
-    top: 178px;
+    top: 158px;
     z-index: 10;
     @include minxins.mobile-sm {
       top: 90px;
@@ -1081,12 +1081,12 @@ button {
 }
 .fixedSetNameRow {
   position: sticky;
-  top: 90px !important;
+  top: 89px !important;
   z-index: 10;
   tr {
     th {
       background-color: var(--white);
-      padding: 8px;
+      padding: 0;
       border-radius: 8px;
       text-align: left;
     }
