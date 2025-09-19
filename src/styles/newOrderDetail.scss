@@ -459,10 +459,13 @@ td {
             // top: 226px;
             top: 300px;
             @include minxins.tab-lg {
-              top: 228px;
+              top: 260px;
+            }
+            @include minxins.tab-xs {
+              top: 253px;
             }
             @include minxins.mobile-sm {
-              top: 226px;
+              top: 288px;
             }
           }
         }
@@ -490,7 +493,7 @@ td {
     }
     @include minxins.mobile-sm {
       // top: 155px;
-      top: 225px;
+      top: 216px;
     }
     & > tr {
       & > {
@@ -1172,7 +1175,7 @@ button {
       // box-shadow: 0px 2px 20px 0px rgba(4, 6, 15, 0.03);
       // border: 1px solid var(--gray_200);
       padding: 17px 15px;
-      border-radius: 12px;
+      border-radius: 0;
       position: absolute;
       width: 100%;
       height: auto;
@@ -1215,4 +1218,9 @@ button {
   display: inline-block;
   margin-top: 4px;
   @include minxins.font("Poppins", 400, 16px, var(--gray_900), 1.4);
+}
+.location_name {
+  @include minxins.mobile-sm {
+    margin: 10px 2px 8px;
+  }
 }
